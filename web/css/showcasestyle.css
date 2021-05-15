@@ -1,19 +1,19 @@
 .showcase{
-    width: 1480px;
-    height: 300px;
+    margin-top:100px;
+    width: 86%;
+    height: 35vh;
     background: #ffffff;
-    overflow: hidden;
     display: flex;
     box-sizing: border-box;
     position:relative;
-    margin-left:70px;
+    margin-left:6%;
 }
 .showcase-box{
-    width: 430px;
-    height: 250px;
+    width: 32%;
+    height: 90%;
     box-shadow: 5px 15px 30px rgba(0,0,0,0.3);
     border-radius: 10px;
-    margin: 0px 10px 10px 10px;
+    margin-right:10px;
     overflow: hidden;
 }
 .showcase-box img{
@@ -29,4 +29,57 @@
     text-transform:uppercase;
     font-size:1.2rem;
     color:#1a1a1a;
+}
+@media only screen and (max-width: 640px) {
+   .showcase{
+        margin-top:60px;
+        width: 86%;
+        height: 20vh;
+        background: #ffffff;
+        box-sizing: border-box;
+        margin-left:6%;
+    }
+    .showcase-box{
+    width: 32%;
+    height: 90%;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    }
+}
+@media only screen and (max-width: 460px){
+     .showcase{
+    margin-top:50px;
+    width: 86%;
+    height: 15vh;
+    background: #ffffff;
+    display: flex;
+    box-sizing: border-box;
+    position:relative;
+    margin-left:6%;
+    }
+}
+@media only screen and (max-width: 360px){
+    .showcase{
+    margin-top:50px;
+    width: 86%;
+    height: 10vh;
+    background: #ffffff;
+    display: flex;
+    box-sizing: border-box;
+    position:relative;
+    margin-left:6%;
+    }
+}
+@media only screen and (max-width: 200px){
+    .showcase{
+        height: 5vh;
+        margin-left:6%;
+    }
+}
+@media only screen and (max-width: 100px){
+    .showcase{
+        height: 2vh;
+        margin-left:6%;
+    }
 }
