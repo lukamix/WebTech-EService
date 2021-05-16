@@ -26,6 +26,8 @@ public class GetSongServlet extends HttpServlet {
         try{
             SongService songService = new SongService();
             List<SongModel> songDAO = songService.find10NewSong();
+            List<SongModel> newAddSongDAO = songService.find10AddSong();
+            List<SongModel> top10Song = songService.find10TopSong();
             ArtistService artistService = new ArtistService();
             List<ArtistModel> artistDAO = artistService.findAll();
             VideoService videoService = new VideoService();
@@ -42,6 +44,27 @@ public class GetSongServlet extends HttpServlet {
                     request.setAttribute("publishday"+Integer.toString(i), songDAO.get(i).getPublishday());
                     request.setAttribute("Quality"+Integer.toString(i), songDAO.get(i).getQuality());
                     request.setAttribute("songlink"+Integer.toString(i), songDAO.get(i).getLink());
+                    
+                    request.setAttribute("newaddsongid"+Integer.toString(i), newAddSongDAO.get(i).getSongid());
+                    request.setAttribute("newaddsongname"+Integer.toString(i), newAddSongDAO.get(i).getSongname());
+                    request.setAttribute("newaddimagelink"+Integer.toString(i), newAddSongDAO.get(i).getImagelink());
+                    request.setAttribute("newaddartistname"+Integer.toString(i),artistDAO.get(newAddSongDAO.get(i).getArtist1id()-1).getArtistname());
+                    request.setAttribute("newaddartist1id"+Integer.toString(i), newAddSongDAO.get(i).getArtist1id());
+                    request.setAttribute("newaddviewcount"+Integer.toString(i), newAddSongDAO.get(i).getViewcount());
+                    request.setAttribute("newaddpublishday"+Integer.toString(i), newAddSongDAO.get(i).getPublishday());
+                    request.setAttribute("newaddQuality"+Integer.toString(i), newAddSongDAO.get(i).getQuality());
+                    request.setAttribute("newaddsonglink"+Integer.toString(i), newAddSongDAO.get(i).getLink());
+                    
+                    request.setAttribute("top10songid"+Integer.toString(i), top10Song.get(i).getSongid());
+                    request.setAttribute("top10songname"+Integer.toString(i), top10Song.get(i).getSongname());
+                    request.setAttribute("top10imagelink"+Integer.toString(i), top10Song.get(i).getImagelink());
+                    request.setAttribute("top10artistname"+Integer.toString(i),artistDAO.get(top10Song.get(i).getArtist1id()-1).getArtistname());
+                    request.setAttribute("top10artist1id"+Integer.toString(i), top10Song.get(i).getArtist1id());
+                    request.setAttribute("top10viewcount"+Integer.toString(i), top10Song.get(i).getViewcount());
+                    request.setAttribute("top10publishday"+Integer.toString(i), top10Song.get(i).getPublishday());
+                    request.setAttribute("top10Quality"+Integer.toString(i), top10Song.get(i).getQuality());
+                    request.setAttribute("top10songlink"+Integer.toString(i), top10Song.get(i).getLink());
+                    
                     //video zone
                     request.setAttribute("videoname"+Integer.toString(i),videoDAO.get(i).getVideoname());
                     request.setAttribute("videolink"+Integer.toString(i), videoDAO.get(i).getVideolink());
