@@ -1,50 +1,54 @@
-
 package Controller;
 
+import Model.ArtistModel;
+import Model.SongModel;
+import Service.impl.ArtistService;
+import Service.impl.SongService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
-public class LogOutServlet extends HttpServlet {
-
+@WebServlet(name = "Song", urlPatterns = {"/Song"})
+public class SongServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        int page=1;
+        if(request.getParameter("page")!=null){
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+        int firstindex = 20*(page-1);
         PrintWriter out = response.getWriter();
-        try {
-            HttpSession session =request.getSession();
-            session.invalidate();
-            deleteCookie(request,response);
-            RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/signin_signup.jsp");
-            dispatch.forward(request,response);
+        try{
+            SongService ss = new SongService();
+            List<SongModel> smlist = ss.getAllSong(firstindex, 20);
+            int count = ss.countSong();
+            System.out.println(count);
+            ArtistService as = new ArtistService();
+            List<ArtistModel> artist = as.findAll();
+            if(smlist!=null){
+                request.setAttribute("count", count);
+                request.setAttribute("Nrecord",smlist.size());
+                for(int i=0;i<smlist.size();i++){
+                    request.setAttribute("songname"+Integer.toString(i), smlist.get(i).getSongname());
+                    ArtistModel am = as.findArtistByID(smlist.get(i).getArtist1id());
+                    request.setAttribute("artist"+Integer.toString(i), artist.get(am.getArtistid()-1).getArtistname());
+                    request.setAttribute("thumbnail"+Integer.toString(i),smlist.get(i).getImagelink());
+                    request.setAttribute("songid"+Integer.toString(i),smlist.get(i).getSongid());
+                }
+                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/song.jsp");
+                dispatch.forward(request,response);
+            }
         }
         finally{
             out.close();
         }
-    }
-    private void deleteCookie(HttpServletRequest request, HttpServletResponse response){
-        Cookie cookie = null;
-        Cookie[] cookies = null;
-        cookies = request.getCookies();
-        if (cookies != null) {
-            for (int i = 0; i < cookies.length; i++) {
-                cookie = cookies[i];
-                if ((cookie.getName()).compareTo("username") == 0 ||(cookie.getName().compareTo("password"))==0
-                        ||cookie.getName().compareTo("lastname")==0) {
-                    // delete cookie
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
-                }
-            }
-        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

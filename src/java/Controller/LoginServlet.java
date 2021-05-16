@@ -9,12 +9,13 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+@WebServlet(name = "Home", urlPatterns = {"/Home"})
 public class LoginServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -24,6 +25,19 @@ public class LoginServlet extends HttpServlet {
         try{
             String username = request.getParameter("username");
             String password = request.getParameter("userpassword");
+            
+            deleteCookie(request,response);
+            Cookie userName = new Cookie("username", 
+                username);
+            Cookie passWord = new Cookie("password", 
+                password);
+            
+            userName.setMaxAge(60 * 60 * 24);
+            passWord.setMaxAge(60 * 60 * 24);
+            
+            response.addCookie(userName);
+            response.addCookie(passWord);
+            
             UserService newuserService = new UserService();
             UserInfoService newuserInfoService = new UserInfoService();
             UserModel userModel = newuserService.findByUserNameAndPassword(username, password);
@@ -31,16 +45,39 @@ public class LoginServlet extends HttpServlet {
                 UserInfoModel tmp = newuserInfoService.findUserInfoById(userModel.getUserid());
                 HttpSession session = request.getSession();
                 session.setAttribute("username",tmp.getLastname());
-                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/GetFavouriteArtistServlet");
+                
+                Cookie lastName = new Cookie("lastname",tmp.getLastname());
+                lastName.setMaxAge(60 * 60 * 24);
+                response.addCookie(lastName);
+                
+                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
                 dispatch.forward(request,response);
             }
             else{
-                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/signin_signup.jsp");
-                dispatch.forward(request,response);
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Đăng Nhập Không Thành Công !');");
+                out.println("location='signin_signup.jsp';");
+                out.println("</script>");
             }
         } finally{
             out.close();
         }
+    }
+    private void deleteCookie(HttpServletRequest request, HttpServletResponse response){
+        Cookie cookie = null;
+        Cookie[] cookies = null;
+        cookies = request.getCookies();
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
+                cookie = cookies[i];
+                if ((cookie.getName()).compareTo("username") == 0 ||(cookie.getName().compareTo("password"))==0
+                        ||cookie.getName().compareTo("lastname")==0) {
+                    // delete cookie
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

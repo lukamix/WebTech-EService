@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Cookie;
 
-@WebServlet(name = "SignUpServlet", urlPatterns = {"/SignUpServlet"})
+@WebServlet(name = "sign-up", urlPatterns = {"/sign-up"})
 public class SignUpServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -27,21 +28,24 @@ public class SignUpServlet extends HttpServlet {
             String txtlastname = request.getParameter("txtlastname");
             UserService newUser = new UserService();
             UserInfoService newUserinfo = new UserInfoService();
-            if(newUser.findByUserName(txtusername)==null){
+            if(newUser.findByUserName(txtusername) == null && newUserinfo.findUserInfoByEmail(txtemail) == null){
                 newUserinfo.InsertUserInfo(txtlastname, txtemail);
                 UserInfoModel tmp = newUserinfo.findUserInfoByEmail(txtemail);
                 Long r2 = newUser.InsertUser(txtusername, txtpassword,tmp.getUserid());
                 if(r2!=null){
-                    System.out.println("Sign Up Complete !");
                     HttpSession session = request.getSession();
                     session.setAttribute("username",tmp.getLastname());
-                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/GetFavouriteArtistServlet");
+                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
                     dispatch.forward(request,response);
                 }
-            }else{
-                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/signin_signup.jsp");
-                dispatch.forward(request,response);
-            }
+            }else if(newUser.findByUserName(txtusername)!=null)
+                {   
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Đăng Kí Không Thành Công !\n"
+                            + "Username đã được sử dụng');");
+                    out.println("location='signin_signup.jsp';");
+                    out.println("</script>");
+                }
         }   
         finally{
             out.close();
