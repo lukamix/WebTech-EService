@@ -1,50 +1,49 @@
-
 package Controller;
 
+import Model.SongModel;
+import Service.impl.SongService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.xml.parsers.SAXParserFactory;
 
-@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
-public class LogOutServlet extends HttpServlet {
+@WebServlet(name = "SearchServlet", urlPatterns = {"/SearchServlet"})
+public class SearchServlet extends HttpServlet {
+    
+    private static final long serialVersionUID = 1L;
+    SAXParserFactory factory;
 
+    public SearchServlet() {
+        super();
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/xml;charset=UTF-8");
+        String query = request.getParameter("query");
         PrintWriter out = response.getWriter();
-        try {
-            HttpSession session =request.getSession();
-            session.invalidate();
-            deleteCookie(request,response);
-            RequestDispatcher dispatch =getServletContext().getRequestDispatcher("/signin_signup.jsp");
-            dispatch.forward(request,response);
+        SongService ss = new SongService();
+        try{
+            out.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            List<SongModel> ls = ss.find3MatchedSong(query);
+            if(ls!=null){
+                out.append("<Songs>");
+                for(int i = 0;i < ls.size();i++){
+                    out.append("<Song>");
+                    out.append("<songname>").append(ls.get(i).getSongname()).append("</songname>");
+                    out.append("<songid>").append(Integer.toString(ls.get(i).getSongid())).append("</songid>");
+                    out.append("</Song>");
+                }
+                out.append("</Songs>");
+            }
         }
         finally{
             out.close();
         }
-    }
-    private void deleteCookie(HttpServletRequest request, HttpServletResponse response){
-        Cookie cookie = null;
-        Cookie[] cookies = null;
-        cookies = request.getCookies();
-        if (cookies != null) {
-            for (int i = 0; i < cookies.length; i++) {
-                cookie = cookies[i];
-                if ((cookie.getName()).compareTo("username") == 0 ||(cookie.getName().compareTo("password"))==0
-                        ||cookie.getName().compareTo("lastname")==0) {
-                    // delete cookie
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
-                }
-            }
-        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
