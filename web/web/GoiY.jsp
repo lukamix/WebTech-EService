@@ -21,12 +21,12 @@
                     <%if(request.getAttribute("songid"+Integer.toString(i+1))!=null){%>
                     <div class="newmusic-card">
                         <div class="image-card">
-                            <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(i+1))%>">
+                            <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i+1))%>">
                                 <img src=<%=request.getAttribute("imagelink"+Integer.toString(i+1))%> alt=""></img>
                             </a>
                         </div>
                         <div class="newmusic-info">
-                            <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(i+1))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i+1))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i+1))%></a>
+                            <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i+1))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i+1))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i+1))%></a>
                             <%if(request.getAttribute("Quality"+Integer.toString(i+1))!=null){%>
                                 <div class="quality"><%=request.getAttribute("Quality"+Integer.toString(i+1))%></div>
                             <%}%>

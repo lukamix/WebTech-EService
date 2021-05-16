@@ -11,11 +11,11 @@
                     for(int i=0;i<10;i++){
                 %>
                 <div class="newlisten-card">
-                <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>">
+                <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>">
                     <img src=<%=request.getAttribute("imagelink"+Integer.toString(i))%> alt=""></img>
                 </a>
                 <div class="newlisten-info">
-                    <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i))%></a>
+                    <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i))%></a>
                     <%if(request.getAttribute("Quality"+Integer.toString(i))!=null){%>
                     <div class="quality"><%=request.getAttribute("Quality"+Integer.toString(i))%></div>
                     <%}%>

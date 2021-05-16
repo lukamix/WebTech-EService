@@ -72,7 +72,7 @@ function displaySearchResults(){
             n = songnames[i].firstChild.nodeValue;
             t = document.createTextNode(n);
             id= songid[i].firstChild.nodeValue;
-            a.setAttribute('href',"http://localhost:8080/Nhachayvjppro/MP3Servlet?songid="+id);
+            a.setAttribute('href',"http://localhost:8080/Nhachayvjppro/mp3?songid="+id);
             a.appendChild(t);
             li.appendChild(a);
             ul.appendChild(li);

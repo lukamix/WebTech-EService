@@ -11,7 +11,7 @@
     <div class ="top">
         <div class="top1-container">
             <div class= "top1-card">
-                <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(0))%>">
+                <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(0))%>">
                 <img src=<%=request.getAttribute("imagelink"+Integer.toString(0))%> alt=""></img>
                 </a>
                 <div class="top1-info">
@@ -32,11 +32,11 @@
                         arrow_drop_up
                     </span>
                 </div>
-                <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>">
+                <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>">
                     <img src=<%=request.getAttribute("imagelink"+Integer.toString(i))%> alt=""></img>
                 </a>
                 <div class="top-info">
-                    <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i))%></a>
+                    <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i))%></a>
                 </div>
                 <div class="views"><%=request.getAttribute("viewcount"+Integer.toString(i))%></div>
             </div>

@@ -10,7 +10,7 @@
             <%for(int j=0;j<5;j++){%>
             <%if(Integer.parseInt(request.getAttribute("Nrecord").toString())>4*i+j){%>
             <div class="song-box">
-                <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(4*i+j))%>">
+                <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(4*i+j))%>">
                     <div class="song-image-box">
                         <div class="play-button">
                             <span class="material-icons">
@@ -20,7 +20,7 @@
                         <img src=<%=request.getAttribute("thumbnail"+Integer.toString(4*i+j))%> alt="alt"/>
                     </div>
                 </a>
-                <div class="song-name"><a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("songname"+Integer.toString(4*i+j))%></a></div>
+                <div class="song-name"><a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("songname"+Integer.toString(4*i+j))%></a></div>
                 <div class="song-artist"><a href="#"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
             </div>
             <%}%>
@@ -32,7 +32,7 @@
         <%
             int currentpage = Integer.parseInt(request.getParameter("page").toString());
             int count = Integer.parseInt(request.getAttribute("count").toString());
-            String link = "window.location.href='/Nhachayvjppro/SongServlet?page=";
+            String link = "window.location.href='/Nhachayvjppro/Song?page=";
         %>
         <%if(count>0){
             String link1=link+"1'";
