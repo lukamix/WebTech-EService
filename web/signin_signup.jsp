@@ -19,7 +19,7 @@
     <h2>Đăng nhập | Đăng ký</h2>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="SignUpServlet">
+            <form action="sign-up" method="POST">
                 <h1>Tạo tài khoản</h1>
                 <div class="social-container">
                     <a href="#" class="social">
@@ -42,7 +42,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="LoginServlet">
+            <form action="Home" method="POST">
                 <h1>Đăng nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social">

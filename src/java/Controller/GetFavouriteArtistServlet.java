@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "GetFavouriteArtistServlet", urlPatterns = {"/GetFavouriteArtistServlet"})
+@WebServlet(name = "home", urlPatterns = {"/home"})
 public class GetFavouriteArtistServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
