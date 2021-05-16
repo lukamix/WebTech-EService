@@ -1,0 +1,112 @@
+.VideoDisplay{
+    margin-top:5%;
+    margin-left: 11%;
+    width: 1200px;
+}
+.VideoDisplay .Heading{
+}
+.VideoDisplay .Heading h1{
+    font-size: 40px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+}
+.VideoDisplay .video-display{
+    min-height: 58.8vh;
+    padding-top: 20px;
+}
+.VideoDisplay .video-display .video-column{
+    display:flex;
+}
+.VideoDisplay .video-display .video-box{
+    height: 180px;
+    width: 230px;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    text-align: left;
+}
+.VideoDisplay .video-display .video-box .video-thumbnail{
+    height: 90px;
+    display: flex;
+}
+.VideoDisplay .video-display .video-box .video-thumbnail:hover .play-button{
+    display:block;
+}
+.VideoDisplay .video-display .video-box .video-thumbnail .video-duration{
+    width:58px;
+    height:18px;
+    display: inline-flex;
+    align-items: center;
+    background-color: black;
+    font-size: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    opacity: 0.5;
+    color: white;
+    position: absolute;
+    border-radius: 2px;
+}
+.VideoDisplay .video-display .video-box .video-thumbnail .video-duration span{
+    transform: scale(0.4);
+}
+.VideoDisplay .video-display .video-box .video-thumbnail .play-button{
+    position: absolute;
+    margin-top:40px;
+    margin-left: 83px;
+    opacity:0.75;
+    display:none;
+}
+.VideoDisplay .video-display .video-box .video-thumbnail .play-button span{
+    color:white;
+    transform : scale(2.4);
+}
+.VideoDisplay .video-display .video-box .video-thumbnail .video-quality{
+    border:1px solid black;
+    position: absolute;
+    margin-top: 92px;
+    color: orange;
+    background-color: black;
+    font-size: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    opacity: 0.5;
+    border-radius: 2px;
+}
+.VideoDisplay .video-display .video-box .video-thumbnail img{
+    height: 108px;
+    width: 192px;
+    border-radius: 5px;
+}
+.VideoDisplay .video-display .video-box .video-name{
+    padding-top:30px;
+}
+.VideoDisplay .video-display .video-box .video-name a{
+    font-size: 12px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    color:black;
+}
+.VideoDisplay .video-display .video-box .video-artist a{
+    font-size: 11px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    color:grey;
+}
+.VideoDisplay .video-pagination{
+    margin-top:15px;
+    width:200px;
+    height:40px;
+    margin-left: 40%;
+    margin-bottom: 10px;
+    display:inline-flex;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.VideoDisplay .video-pagination button{
+    border:none;
+    border-left:1px solid #aaa;
+    background-color: white;
+    width:30px;
+    height:30px;
+}
+.VideoDisplay .video-pagination button:hover{
+    background-color: #DDDDDD;
+}

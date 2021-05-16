@@ -1,0 +1,122 @@
+.newestalbum{
+    width:100%;
+}
+.newestalbum .albummoi{
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+.newestalbum .xemtatca{
+    margin-top:2px;
+    float :right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+.album-container{
+    width: 100%;
+    position: relative;
+}
+.album-track{
+    display: inline-flex;
+    transition: transform 1.5s;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.album-card-container{
+  width: 14.25vw;
+  height: 11vw;
+  flex-shrink: 0;
+  padding-right: 1vw;
+  box-sizing: border-box;
+}
+.album-card a img:hover{
+  display: block;
+  -webkit-filter: brightness(70%);
+}
+.album-card{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.album-card > * {
+  flex: 1;
+}
+.album-card a img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: top;
+}
+.album-card .album-play{
+  opacity: 1;
+  display:none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5%;
+}
+.album-card:hover .album-play{
+  display:block;
+}
+.album-card .album-info{
+  flex-basis: 40px;
+  background: #333;
+  color: #fff;
+  flex-grow: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.album-card .album-info a{
+    color:white;
+}
+@media only screen and (max-width: 1080px){
+    .album-card .album-info a{
+        padding: 0px;
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 880px){
+    .album-card .album-info a{
+        padding: 0px;
+        font-size: 10px;
+    }
+    .album-card{
+        border-radius: 15px;
+    }
+}
+@media only screen and (max-width: 840px){
+    .album-card{
+        border-radius: 10px;
+    }
+    .album-card-container{
+        width: 14.25vw;
+        height: 8vw;
+    }
+    .album-card .album-info{
+        display: none;
+    }
+}
+@media only screen and (max-width: 640px){
+    .album-card-container{
+        width: 20.5vw;
+        height: 11.5vw;
+    }
+}

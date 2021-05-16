@@ -1,0 +1,57 @@
+.FavouriteArtist{
+    width: 100%;
+    height: 33vw;
+    overflow: hidden;
+}
+.FavouriteArtist .favourite{
+    padding-top:10px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.67vw;
+    font-weight: bold;
+    position: relative;
+}
+.FavouriteArtist .favourite-image{
+    display: flex;
+    flex-direction: column;
+}
+.FavouriteArtist .favourite-image .favourite-image1{
+    margin-top: 10px;
+    display: flex;
+    width: 20vw;
+    height: 20vw;
+}
+.FavouriteArtist .favourite-image .favourite-image1 .bigImage img{
+    border: 2px solid grey;
+    border-radius: 0px; 
+    width: 15vw;
+    height: 20vw;
+}
+.FavouriteArtist .favourite-image .favourite-image1 .smallImage{
+    display: flex;
+    flex-direction: column;
+}
+.FavouriteArtist .favourite-image .favourite-image1 .smallImage1{
+    width: 10vw;
+    height: 10vw;
+}
+.FavouriteArtist .favourite-image .favourite-image1 .smallImage1 img{
+    border: 2px solid grey;
+    border-radius: 0px;
+    width: 10vw;
+    height: 10vw;
+}
+.FavouriteArtist .favourite-image .favourite-image2{
+    display: flex;
+    flex-direction: row;
+}
+.FavouriteArtist .favourite-image .favourite-image2 .smallImage2{
+    width: 12.5vw;
+    height: 12.5vw;
+}
+.FavouriteArtist .favourite-image .favourite-image2 .smallImage2 img{
+    border: 2px solid grey;
+    border-radius: 0px;
+    width: 12.5vw;
+    height: 12.5vw;
+}
