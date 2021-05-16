@@ -11,7 +11,7 @@
         <div class="info">
             <div class="row">
                 <div class ="title">Ca sĩ:</div>
-                <a href="#"><%=request.getAttribute("artistname")%></a>
+                <a href="artist?artistid=<%=request.getAttribute("artistid")%>&songpage=1&videopage=1"><%=request.getAttribute("artistname")%></a>
             </div>
             <div class="row">
                 <%if(request.getAttribute("songauthor")!=null){%>

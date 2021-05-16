@@ -39,6 +39,7 @@ public class SongServlet extends HttpServlet {
                     request.setAttribute("songname"+Integer.toString(i), smlist.get(i).getSongname());
                     ArtistModel am = as.findArtistByID(smlist.get(i).getArtist1id());
                     request.setAttribute("artist"+Integer.toString(i), artist.get(am.getArtistid()-1).getArtistname());
+                    request.setAttribute("artist1id"+Integer.toString(i),smlist.get(i).getArtist1id());
                     request.setAttribute("thumbnail"+Integer.toString(i),smlist.get(i).getImagelink());
                     request.setAttribute("songid"+Integer.toString(i),smlist.get(i).getSongid());
                 }

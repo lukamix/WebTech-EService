@@ -19,20 +19,10 @@ var durationTime1 = document.getElementById("total-time");
 var audio = document.getElementById("songaudio");
 audio.volume = 1;
 audio.onended = function(){
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            var data = xhr.responseText;
-            alert(data);
-        }
-    };
-    xhr.open("POST", "/Nhachayvjppro/MP3Servlet");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("key=" + getParameter("songid")); 
+    alert("The audio has ended");
 };
 function getParameter(name){
-   if(name===(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-      return decodeURIComponent(name[1]);
+    
 }
 window.onload = function() {
     setDuration();

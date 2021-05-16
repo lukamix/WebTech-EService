@@ -2,7 +2,7 @@
 <link rel="stylesheet" href = "css/NewMusic.css"/>
 <div class="NewMusic">
     <a href="#" class = "new">Bài hát mới</a>
-    <a href="#" class = "xemtatca">Xem tất cả</a>
+    <a href="#" class = "xemtatca">Nghe tất cả</a>
     <div class="newMusic">
         <div class="newmusic-container">
             <div class = "newmusic-track" id ="newmusic-track">
@@ -14,7 +14,7 @@
                     <img src=<%=request.getAttribute("imagelink"+Integer.toString(i))%> alt=""></img>
                 </a>
                 <div class="newmusic-info">
-                    <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a> - <a href="#" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i))%></a>
+                    <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a> - <a href="artist?artistid=<%=request.getAttribute("artist1id"+Integer.toString(i))%>&songpage=1&videopage=1" class="artist"><%=request.getAttribute("artistname"+Integer.toString(i))%></a>
                     <%if(request.getAttribute("Quality"+Integer.toString(i))!=null){%>
                     <div class="quality"><%=request.getAttribute("Quality"+Integer.toString(i))%></div>
                     <%}%>

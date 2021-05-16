@@ -60,4 +60,14 @@ public class SongService implements ISongService{
     public int countSongByArtist(int artistid) {
         return songDAO.countSongByArtist(artistid);
     }
+
+    @Override
+    public List<SongModel> find10AddSong() {
+        return songDAO.find10AddSong();
+    }
+
+    @Override
+    public List<SongModel> find10TopSong() {
+        return songDAO.find10TopSong();
+    }
 }
