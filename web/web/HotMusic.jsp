@@ -29,14 +29,14 @@
             <%} else {%>
                 <div class="rank" id=<%="rank"+Integer.toString(i+1)%>><%=Integer.toString(i+1)%></div>
             <%}%>
-            <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songidtop"+Integer.toString(i))%>">
+            <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songidtop"+Integer.toString(i))%>">
                 <span class="material-icons">
                     play_circle_outline
                 </span>
                 <img src=<%=request.getAttribute("songimagelinktop"+Integer.toString(i))%> alt="alt">
             </a>
             <div class="song-info">
-                <a href="/Nhachayvjppro/MP3Servlet?songid=<%=request.getAttribute("songidtop"+Integer.toString(i))%>"><div class="song-name"><%=request.getAttribute("songnametop"+Integer.toString(i))%></div></a>
+                <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songidtop"+Integer.toString(i))%>"><div class="song-name"><%=request.getAttribute("songnametop"+Integer.toString(i))%></div></a>
                 <a href="#"><div class="artist"><%=request.getAttribute("artistnametop"+Integer.toString(i))%></div></a>
                 <%if(request.getAttribute("songqualitytop"+Integer.toString(i))!=null){%>
                     <div class="quality"><%=request.getAttribute("songqualitytop"+Integer.toString(i))%></div>
@@ -61,14 +61,14 @@
             <%} else {%>
                 <div class="rank" id=<%="rank"+Integer.toString(i+1)%>><%=Integer.toString(i+1)%></div>
             <%}%>
-            <a href="/Nhachayvjppro/VideoServlet?videoid=<%=request.getAttribute("videoidtop"+Integer.toString(i))%>">
+            <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoidtop"+Integer.toString(i))%>">
                 <span class="material-icons">
                     play_circle_outline
                 </span>
                 <img src=<%=request.getAttribute("videoimagelinktop"+Integer.toString(i))%> alt="alt">
             </a>
             <div class="video-info">
-                <a href="/Nhachayvjppro/VideoServlet?videoid=<%=request.getAttribute("videoidtop"+Integer.toString(i))%>"><div class="video-name"><%=request.getAttribute("videonametop"+Integer.toString(i))%></div></a>
+                <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoidtop"+Integer.toString(i))%>"><div class="video-name"><%=request.getAttribute("videonametop"+Integer.toString(i))%></div></a>
                 <a href="#"><div class="artist"><%=request.getAttribute("videoartistnametop"+Integer.toString(i))%></div></a>
                 <%if(request.getAttribute("videoqualitytop"+Integer.toString(i))!=null){%>
                     <div class="quality"><%=request.getAttribute("videoqualitytop"+Integer.toString(i))%></div>

@@ -6,8 +6,9 @@
     </head>
 
     <body>
-        <jsp:include page="common/header.jsp"/>
         <section id="main">
+            <jsp:include page="common/header.jsp"/>
+            <div class="v">
             <jsp:include page="web/showcase.jsp"/>
             <jsp:include page="web/slideshow.jsp"/>
             <div class="horizontaldisplay">
@@ -23,8 +24,9 @@
                     <jsp:include page="web/FavouriteArtist.jsp"/>
                 </div>
             </div>
+            </div>
+            <jsp:include page="common/footer.jsp"/>
         </section>
-        <jsp:include page="common/footer.jsp"/>
     </body>
     <script type ="text/javascript" src ="JS/slideshow.js"/></script>
 </html>
