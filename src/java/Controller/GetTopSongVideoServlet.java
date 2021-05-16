@@ -47,6 +47,7 @@ public class GetTopSongVideoServlet extends HttpServlet {
                     request.setAttribute("videoimagelinktop"+Integer.toString(i), topVideo.get(i).getThumbnaillink());
                     request.setAttribute("videoviewcounttop"+Integer.toString(i), topVideo.get(i).getViewcount());
                     request.setAttribute("videoidtop"+Integer.toString(i), topVideo.get(i).getVideoid());
+                    request.setAttribute("videoartistidtop"+Integer.toString(i),topVideo.get(i).getArtist().getArtistid());
                     ArtistModel am = as.findArtistByID(topVideo.get(i).getArtist().getArtistid());
                     request.setAttribute("videoartistnametop"+Integer.toString(i), artist.get(am.getArtistid()-1).getArtistname());
                 }

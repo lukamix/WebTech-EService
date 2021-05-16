@@ -21,7 +21,7 @@
                     </div>
                 </a>
                 <div class="song-name"><a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("songname"+Integer.toString(4*i+j))%></a></div>
-                <div class="song-artist"><a href="#"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
+                <div class="song-artist"><a href="artist?artistid=<%=request.getAttribute("artist1id"+Integer.toString(4*i+j))%>&songpage=1&videopage=1"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
             </div>
             <%}%>
             <%}%>

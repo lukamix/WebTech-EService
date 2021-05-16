@@ -37,7 +37,7 @@
             </a>
             <div class="song-info">
                 <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songidtop"+Integer.toString(i))%>"><div class="song-name"><%=request.getAttribute("songnametop"+Integer.toString(i))%></div></a>
-                <a href="#"><div class="artist"><%=request.getAttribute("artistnametop"+Integer.toString(i))%></div></a>
+                <a href="artist?artistid=<%=request.getAttribute("songartisttop"+Integer.toString(i))%>&songpage=1&videopage=1"><div class="artist"><%=request.getAttribute("artistnametop"+Integer.toString(i))%></div></a>
                 <%if(request.getAttribute("songqualitytop"+Integer.toString(i))!=null){%>
                     <div class="quality"><%=request.getAttribute("songqualitytop"+Integer.toString(i))%></div>
                 <%}%>
@@ -69,7 +69,7 @@
             </a>
             <div class="video-info">
                 <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoidtop"+Integer.toString(i))%>"><div class="video-name"><%=request.getAttribute("videonametop"+Integer.toString(i))%></div></a>
-                <a href="#"><div class="artist"><%=request.getAttribute("videoartistnametop"+Integer.toString(i))%></div></a>
+                <a href="artist?artistid=<%=request.getAttribute("videoartistidtop"+Integer.toString(i))%>&songpage=1&videopage=1"><div class="artist"><%=request.getAttribute("videoartistnametop"+Integer.toString(i))%></div></a>
                 <%if(request.getAttribute("videoqualitytop"+Integer.toString(i))!=null){%>
                     <div class="quality"><%=request.getAttribute("videoqualitytop"+Integer.toString(i))%></div>
                 <%}%>

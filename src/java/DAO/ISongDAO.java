@@ -9,10 +9,12 @@ public interface ISongDAO extends GenericDAO<SongModel> {
     List<SongModel> getAllSong(int firstindex,int maxItem);
     List<SongModel> findAll();
     List<SongModel> find10NewSong();
+    List<SongModel> find10AddSong();
     List<SongModel> find10relatedSong(int artistid);
     List<SongModel> findSongByArtist(int artistid,int firstindex,int maxItem);
     List<SongModel> find3MatchedSong(String query);
     List<SongModel> find20TopSong();
+    List<SongModel> find10TopSong();
     int getTotalSong();
     void update(SongModel songModel);
     void delete(long songid);
