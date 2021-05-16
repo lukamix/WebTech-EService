@@ -27,12 +27,12 @@
             <div class="place">
                 <div class="number"><%=i+1%></div>
             </div>
-            <a href="/Nhachayvjppro/mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>">
+            <a href="mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>">
                 <img src=<%=request.getAttribute("songimage"+Integer.toString(i))%> alt=""></img>
             </a>
             <div class="song-info">
-                <a href="#" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a>
-                <a href="#" class="artist"><%=request.getAttribute("artistname")%></a>
+                <a href="mp3?songid=<%=request.getAttribute("songid"+Integer.toString(i))%>" class="name"><%=request.getAttribute("songname"+Integer.toString(i))%></a>
+                <a href="artist?artistid=<%=request.getAttribute("artist1id"+Integer.toString(i))%>&songpage=1&videopage=1" class="artist"><%=request.getAttribute("artistname")%></a>
                 <div class="quality">lossless</div>
             </div>
             <div class="views">

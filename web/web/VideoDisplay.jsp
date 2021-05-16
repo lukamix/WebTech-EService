@@ -30,7 +30,7 @@
                     </div>
                 </a>
                 <div class="video-name"><a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("videoname"+Integer.toString(4*i+j))%></a></div>
-                <div class="video-artist"><a href="#"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
+                <div class="video-artist"><a href="artist?artistid=<%=request.getAttribute("artistid"+Integer.toString(4*i+j))%>&songpage=1&videopage=1"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
             </div>
             <%}%>
             <%}%>
@@ -39,7 +39,7 @@
     </div>
     <div class="video-pagination">
         <%
-            int currentpage = Integer.parseInt(request.getParameter("page").toString());
+            int currentpage = Integer.parseInt(request.getAttribute("page").toString());
             int count = Integer.parseInt(request.getAttribute("count").toString());
             String link = "window.location.href='/Nhachayvjppro/Video-Clip?page=";
         %>
