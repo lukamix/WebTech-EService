@@ -32,7 +32,9 @@ Nếu bằng 1 cách nào đó bạn không tìm thấy tab Service, thì hãy b
   -> Đợi và Database đã được import vào MySQL !
 6. Config lại 1 số thuộc tính :
   Trong file AbstractDAO.java ở mục Source Packages/DAO/impl :
-    -Đi tới dòng lệnh :"Class.forName("com.mysql.cj.jdbc.Driver");
+    -Đi tới dòng lệnh :"
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             String url = "jdbc:mysql://localhost:3306/webstreamingmusic";
 
