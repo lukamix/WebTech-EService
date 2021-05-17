@@ -42,7 +42,8 @@ Nếu bằng 1 cách nào đó bạn không tìm thấy tab Service, thì hãy b
 
             String password = ""; 
 "
-    -Sửa đổi thông tin user và password ứng với db của bạn .
+    -Sửa đổi thông tin user và password ứng với db của bạn
+    
 7. Chạy Project:
 - Bấm chuột phải vào project ,chọn Run hoặc đơn giản hơn là bấm nút Run Project có sẵn trên màn hình (Nhớ để ý xem nút đấy sẽ chạy project nào)
 - Đợi 1 lúc, bảng thông báo nhập username và password cho server sẽ hiện ra, nhập username và password bạn đã tạo trước đó ở mục 3.
