@@ -33,9 +33,13 @@ Nếu bằng 1 cách nào đó bạn không tìm thấy tab Service, thì hãy b
 6. Config lại 1 số thuộc tính :
   Trong file AbstractDAO.java ở mục Source Packages/DAO/impl :
     -Đi tới dòng lệnh :"Class.forName("com.mysql.cj.jdbc.Driver");
+
             String url = "jdbc:mysql://localhost:3306/webstreamingmusic";
+
             String user = "root";
-            String password = ""; "
+
+            String password = ""; 
+"
     -Sửa đổi thông tin user và password ứng với db của bạn .
 7. Chạy Project:
 - Bấm chuột phải vào project ,chọn Run hoặc đơn giản hơn là bấm nút Run Project có sẵn trên màn hình (Nhớ để ý xem nút đấy sẽ chạy project nào)
