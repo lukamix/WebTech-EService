@@ -30,7 +30,7 @@ public class VideoDAO extends AbstractDAO<VideoModel> implements IVideoDAO {
 
     @Override
     public List<VideoModel> get10relatedvideo(int artistid) {
-        String sql = "SELECT * FROM (SELECT * FROM Video ORDER BY videoid DESC LIMIT 10) sub ORDER BY videoid ASC";
+        String sql = "SELECT * FROM (SELECT * FROM Video ORDER BY videoid DESC LIMIT 10) sub ORDER BY rand() ASC";
         return query(sql, new VideoMapper());
     }
 
