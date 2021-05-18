@@ -1,9 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href = "css/audio-player.css"/>
-<div id="music-player"> <!-- The full black bar -->
-  <div class="inner"> <!-- Keeping everything centered -->
+<div id="music-player">
+  <div class="inner">
     
-   <!-- The controls -->
    <div class="controls">
     <a class="previous" href="#">
         <span class="material-icons">
@@ -25,13 +24,36 @@
             skip_next
         </span>
     </a>
+    <div class="volume1">
+    <div class="range-slider">
+        <input type="range" id="range1" min="0" max="10" step="0.1" value="10"
+               oninput="changeVolume(this.value)" 
+               onchange="changeVolume(this.value)"/>
+    </div> 
+    <a class="volume-up" href="#">
+        <span class="material-icons">
+            volume_up
+        </span>
+    </a>
+    <a class="volume-down" href="#">
+        <span class="material-icons">
+            volume_down
+        </span>
+    </a>
+    <a class="volume-mute" href="#">
+        <span class="material-icons">
+            volume_mute
+        </span>
+    </a>
+    </div>
    </div>
    
-   <!-- The play bar -->
    <div class="play-bar">
     <span id="time">00:00</span>
     <div class="bar-bg">
-     <div class="progress"></div>
+        <div class="progress">
+            
+        </div>
     </div>
     <span id="total-time">00:00</span>
    </div>
@@ -41,13 +63,11 @@
      <div class="img-wrapper">
       <img src=<%=request.getAttribute("imagelink")%>>
      </div>
-     <!-- The artist name and song title -->
      <div class="song-info">
       <span class="artist"><%=request.getAttribute("artistname")%></span>
       <span class="song"><%=request.getAttribute("songname")%></span>
      </div>
     </div>
-    <!-- Comment counter -->
     <div class="comment-icon">
      <a href="#">
         <span class="material-icons">
@@ -56,6 +76,6 @@
       <span>7</span>
      </a>
     </div>
-   </div> <!-- The songs meta END -->
-  </div> <!-- Keeping everything centered END -->
-</div> <!-- The full black bar END -->
+   </div>
+  </div>
+</div>

@@ -7,27 +7,51 @@ var previous = document.querySelector('.previous');
 var mainskipButton = document.querySelector('.main-next');
 var skipButton = document.querySelector('.next');
 
+var mainvolumedownbutton = document.querySelector(".main-volume-down");
+var volumedownbutton = document.querySelector(".volume-down");
+var mainvolumeupbutton = document.querySelector(".main-volume-up");
+var volumeupbutton = document.querySelector(".volume-up");
+var mainvolumemutebutton = document.querySelector(".main-volume-mute");
+var volumemutebutton = document.querySelector(".volume-mute");
+var volumerange = document.getElementById("range");
+var volumerange1 = document.getElementById("range1");
+var volume = document.querySelector(".volume");
+var volume1 = document.querySelector(".volume1");
+
 var currentTime = document.getElementById("main-time");
 var currentTime1 = document.getElementById("time");
 
 var progress = document.querySelector('.main-progress');
+var progressbar = document.querySelector('.main-bar-bg');
+var progressbar1 = document.querySelector('.bar-bg');
 var progress1 = document.querySelector('.progress');
 
 var durationTime = document.getElementById("main-total-time");
 var durationTime1 = document.getElementById("total-time");
 
+var nextSong =document.getElementById("song-id").value;
+var inputCheckBox = document.getElementById("check-box");
+
 var audio = document.getElementById("songaudio");
 audio.volume = 1;
 audio.onended = function(){
-    alert("The audio has ended");
+    if(inputCheckBox.checked){
+        window.location ="/Nhachayvjppro/mp3?songid="+nextSong;
+    }
 };
-function getParameter(name){
-    
-}
 window.onload = function() {
+    inputCheckBox.checked=true;
     setDuration();
     autoPlay();
 };
+progressbar.addEventListener("click",function(){
+    audio.currentTime = (event.clientX -getPos(progressbar).x)/progressbar.offsetWidth * audio.duration;
+});
+progressbar1.addEventListener("click",function(){
+    console.log(event.clientX);
+    console.log(getPos(progressbar1).x);
+    audio.currentTime = (event.clientX -getPos(progressbar1).x)/progressbar1.offsetWidth * audio.duration;
+});
 mainplayButton.addEventListener("click",function(){
     onPlayClick();
 });
@@ -40,6 +64,27 @@ mainpauseButton.addEventListener("click",function(){
 pauseButton.addEventListener("click",function(){
     onPauseClick();
 });
+mainvolumeupbutton.addEventListener("click",function(){
+    if(volumerange.style.display === "" || volumerange.style.display === "none"){
+        volumerange.style.display = "block";
+        volume.style.marginBottom = "85px";
+    }else if(volumerange.style.display === "block"){
+        volumerange.style.display = "none";
+        volume.style.marginBottom = "0px";
+    }
+});
+volumeupbutton.addEventListener("click",function(){
+    if(volumerange1.style.display === "" || volumerange1.style.display === "none"){
+        volumerange1.style.display = "block";
+        volume1.style.marginBottom = "85px";
+    }else if(volumerange1.style.display === "block"){
+        volumerange1.style.display = "none";
+        volume1.style.marginBottom = "0px";
+    }
+});
+function changeVolume(value){
+    audio.volume = value/10;
+}
 function autoPlay(){
     mainpauseButton.style.display = "block";
     pauseButton.style.display = "block";
@@ -94,4 +139,10 @@ function setDuration(){
     else secondstring = seconds;
     durationTime.innerHTML= minutestring+":"+secondstring;
     durationTime1.innerHTML= minutestring+":"+secondstring;
+}
+function getPos(el) {
+    for (var lx=0, ly=0;
+         el !== null;
+         lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+    return {x: lx,y: ly};
 }
