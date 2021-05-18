@@ -39,6 +39,7 @@ public class VideoServlet extends HttpServlet {
                 request.setAttribute("videolink",res.getVideolink());
                 request.setAttribute("imagelink", res.getThumbnaillink());
                 request.setAttribute("artistname", am.getArtistname());
+                request.setAttribute("artistid",res.getArtist().getArtistid());
                 RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/video.jsp");
                 dispatch.forward(request,response);
             }

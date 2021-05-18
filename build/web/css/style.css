@@ -1,0 +1,98 @@
+body{
+    width:100vw;
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+}
+*{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+#main{
+    background-color: #ffffff;
+}
+.horizontaldisplay{
+    width:85vw;
+    margin-left:6%;
+    display:flex;
+}
+.horizontaldisplay .verticaldisplay1{
+    width:60vw;
+    height:84vw;
+}
+.horizontaldisplay .verticaldisplay1 .subverticaldisplay{
+    height:69%;
+    display:flex;
+}
+.horizontaldisplay .verticaldisplay1 .newestalbum{
+    position: relative;
+}
+.horizontaldisplay .verticaldisplay2{
+    width:25vw;
+    display:flex;
+    flex-direction: column;
+}
+.horizontaldisplay .verticaldisplay2 .leaderboard{
+    display:flex;
+    flex-direction: column;
+}
+@media only screen and (max-width: 640px){
+    .v{
+        border:1px solid red;
+        height:130vh;
+    }
+    .horizontaldisplay .verticaldisplay1{
+        width:85vw;
+        height:97vw;
+    }
+    .horizontaldisplay .verticaldisplay2{
+        display:none;
+    }
+}
+@media only screen and (max-width: 530px){
+    .v{
+        border:1px solid red;
+        height:123vh;
+    }
+}
+@media only screen and (max-width: 490px){
+    .v{
+        border:1px solid red;
+        height:120vh;
+    }
+}
+@media only screen and (max-width: 460px){
+    .v{
+        border:1px solid red;
+        height:110vh;
+    }
+}
+@media only screen and (max-width: 420px){
+    .v{
+        border:1px solid red;
+        height:102vh;
+    }
+}
+@media only screen and (max-width: 380px){
+    .v{
+        border:1px solid red;
+        height:96vh;
+    }
+}
+@media only screen and (max-width: 350px){
+    .v{
+        border:1px solid red;
+        height:92vh;
+    }
+}
+@media only screen and (max-width: 300px){
+    .v{
+        border:1px solid red;
+        height:85vh;
+    }
+}

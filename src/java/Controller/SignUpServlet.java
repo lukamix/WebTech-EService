@@ -26,26 +26,41 @@ public class SignUpServlet extends HttpServlet {
             String txtpassword = request.getParameter("txtpassword");
             String txtemail = request.getParameter("txtemail");
             String txtlastname = request.getParameter("txtlastname");
-            UserService newUser = new UserService();
-            UserInfoService newUserinfo = new UserInfoService();
-            if(newUser.findByUserName(txtusername) == null && newUserinfo.findUserInfoByEmail(txtemail) == null){
-                newUserinfo.InsertUserInfo(txtlastname, txtemail);
-                UserInfoModel tmp = newUserinfo.findUserInfoByEmail(txtemail);
-                Long r2 = newUser.InsertUser(txtusername, txtpassword,tmp.getUserid());
-                if(r2!=null){
-                    HttpSession session = request.getSession();
-                    session.setAttribute("username",tmp.getLastname());
-                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
-                    dispatch.forward(request,response);
-                }
-            }else if(newUser.findByUserName(txtusername)!=null)
-                {   
+            String txtrepassword = request.getParameter("txtrepassword");
+            if(txtemail.equals(txtrepassword)){
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Vui lòng nhập lại chính xác mật khẩu');");
+                out.println("location='signin_signup.jsp';");
+                out.println("</script>");
+            }
+            else{
+                UserService newUser = new UserService();
+                UserInfoService newUserinfo = new UserInfoService();
+                if(newUser.findByUserName(txtusername) == null && newUserinfo.findUserInfoByEmail(txtemail) == null){
+                    newUserinfo.InsertUserInfo(txtlastname, txtemail);
+                    UserInfoModel tmp = newUserinfo.findUserInfoByEmail(txtemail);
+                    Long r2 = newUser.InsertUser(txtusername, txtpassword,tmp.getUserid());
+                    if(r2!=null){
+                        HttpSession session = request.getSession();
+                        session.setAttribute("username",tmp.getLastname());
+                        RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
+                        dispatch.forward(request,response);
+                    }
+                }else if(newUser.findByUserName(txtusername)!=null)
+                {
                     out.println("<script type=\"text/javascript\">");
-                    out.println("alert('Đăng Kí Không Thành Công !\n"
-                            + "Username đã được sử dụng');");
+                    out.println("alert('Đăng Kí Không Thành Công ,Username đã được sử dụng');");
                     out.println("location='signin_signup.jsp';");
                     out.println("</script>");
                 }
+                else if(newUserinfo.findUserInfoByEmail(txtemail)!=null)
+                {
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Đăng Kí Không Thành Công ,Email đã được sử dụng');");
+                    out.println("location='signin_signup.jsp';");
+                    out.println("</script>");
+                }
+            }
         }   
         finally{
             out.close();

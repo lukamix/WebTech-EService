@@ -5,7 +5,9 @@ public class VideoModel {
     private String videoname;
     private String videolink;
     private String thumbnaillink;
+    private int viewcount;
     private ArtistModel artist;
+    
     public VideoModel(){
         artist = new ArtistModel();
     }
@@ -47,6 +49,14 @@ public class VideoModel {
 
     public void setArtist(ArtistModel artist) {
         this.artist = artist;
+    }
+
+    public int getViewcount() {
+        return viewcount;
+    }
+
+    public void setViewcount(int viewcount) {
+        this.viewcount = viewcount;
     }
     
 }

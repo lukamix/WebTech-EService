@@ -10,7 +10,7 @@
             <%for(int j=0;j<5;j++){%>
             <%if(Integer.parseInt(request.getAttribute("Nrecord").toString())>4*i+j){%>
             <div class="video-box">
-                <a href="/Nhachayvjppro/VideoServlet?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>">
+                <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>">
                     <div class="video-thumbnail">
                         <div class="video-duration">
                             <span class="material-icons">
@@ -29,8 +29,8 @@
                         <img src=<%=request.getAttribute("thumbnail"+Integer.toString(4*i+j))%> alt="alt"/>
                     </div>
                 </a>
-                <div class="video-name"><a href="/Nhachayvjppro/VideoServlet?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("videoname"+Integer.toString(4*i+j))%></a></div>
-                <div class="video-artist"><a href="#"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
+                <div class="video-name"><a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("videoname"+Integer.toString(4*i+j))%></a></div>
+                <div class="video-artist"><a href="artist?artistid=<%=request.getAttribute("artistid"+Integer.toString(4*i+j))%>&songpage=1&videopage=1"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
             </div>
             <%}%>
             <%}%>
@@ -39,9 +39,9 @@
     </div>
     <div class="video-pagination">
         <%
-            int currentpage = Integer.parseInt(request.getParameter("page").toString());
+            int currentpage = Integer.parseInt(request.getAttribute("page").toString());
             int count = Integer.parseInt(request.getAttribute("count").toString());
-            String link = "window.location.href='/Nhachayvjppro/VideoClipServlet?page=";
+            String link = "window.location.href='/Nhachayvjppro/Video-Clip?page=";
         %>
         <%if(count>0){
             String link1=link+"1'";

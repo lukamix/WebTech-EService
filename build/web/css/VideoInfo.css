@@ -1,0 +1,145 @@
+.songInfo{
+    display: flex; 
+    margin-top: 1vw;
+}
+.songInfo .leftSide{
+    width : 30%;
+    display: flex;
+    flex-direction: column;
+}
+.songInfo .leftSide img{
+    width: 15vw;
+    height: 8vw;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+.songInfo .leftSide .songName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.songInfo .leftSide .info{
+  
+}
+.songInfo .leftSide .info .row{
+    
+}
+.songInfo .leftSide .info .row .title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color:grey;
+}
+.songInfo .leftSide .info .row a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color:black;
+}
+.songInfo .rightSide{
+    width:80%;
+}
+.songInfo .rightSide ul{
+    display: flex;
+}
+.songInfo .rightSide ul li{
+    padding-left:5px;
+}
+.songInfo .rightSide ul li button{
+    width : 8vw;
+    height: 2.5vw;
+    border-radius: 50px;
+    background-color:linen;
+    color:grey;
+    display: flex;
+}
+.songInfo .rightSide ul li button span{
+    font-size:1.6vw;
+    padding-top:.5vw;
+    padding-left:.3vw;
+}
+.songInfo .rightSide ul li button .buttonname{
+    font-size:1vw;
+    padding-left:.1vw;
+    padding-top:.7vw;
+}
+.songInfo .rightSide ul li #DownloadExtends a.a128kbps{
+    color:yellow;
+}
+.songInfo .rightSide ul li #DownloadExtends a.a320kbps{
+    color:greenyellow;
+}
+.songInfo .rightSide ul li #LyricsExtends{
+    width: 500px;
+    height: 300px;
+    word-wrap: break-word;
+    color: grey;
+    display: none;
+}
+.songInfo .rightSide ul li #DownloadExtends{
+    color: pink;
+    flex-direction: column;
+    display: none;
+}
+.songInfo .rightSide ul li #ShareExtends{
+    color: pink;
+    display: none;
+}
+.songInfo .rightSide ul li #MoreExtends{
+    color: pink;
+    display: none;
+}
+@media only screen and (max-width: 880px){                                              
+    .songInfo{
+        width:80vw;
+        margin-top:25vw;
+    }
+    .songInfo .leftSide img{
+        width: 25vw;
+        height: 15vw;
+    }
+    .songInfo .rightSide ul li button{
+        width : 12vw;
+        height: 4vw;
+    }
+    .songInfo .rightSide ul li button span{
+    font-size:3vw;
+    padding-top:.5vw;
+    padding-left:.3vw;
+    }
+    .songInfo .rightSide ul li button .buttonname{
+        font-size:2vw;
+        padding-left:.1vw;
+        padding-top:.7vw;
+    }
+}
+@media only screen and (max-width: 500px){
+        .songInfo .rightSide ul li button{
+            margin-top:1vw;
+            width : 15vw;
+            height: 4vw;
+        }
+        .songInfo .rightSide ul{
+            display:flex;
+            flex-direction: column;
+        }
+        .songInfo{
+            margin-top:20vh;
+        }
+}
+@media only screen and (max-width: 280px){
+    .songInfo .leftSide img{
+        width: 35vw;
+        height: 20vw;
+    }
+    .songInfo{
+        margin-top:30vh;
+    }
+    .songInfo .rightSide {
+        display:none;
+    }
+    .songInfo .leftSide{
+        width:100%;
+    }
+}

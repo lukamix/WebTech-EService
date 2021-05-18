@@ -70,7 +70,7 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
 
     @Override
     public List<SongModel> find10NewSong() {
-        String sql = "SELECT * FROM (SELECT * FROM Song ORDER BY songid DESC LIMIT 10) sub ORDER BY songid ASC";
+        String sql = "SELECT * FROM song ORDER BY DATE(publishday) DESC Limit 10";
         return query(sql, new SongMapper());
     }
 
@@ -89,6 +89,11 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
     @Override
     public List<SongModel> find20TopSong() {
         String sql = "SELECT * FROM Song ORDER BY viewcount DESC LIMIT 20";
+        return query(sql,new SongMapper());
+    }
+    @Override
+    public List<SongModel> find10TopSong() {
+        String sql = "SELECT * FROM Song ORDER BY viewcount DESC LIMIT 10";
         return query(sql,new SongMapper());
     }
 
@@ -114,5 +119,11 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
     public int countSongByArtist(int artistid) {
         String sql ="SELECT COUNT(songid) FROM Song WHERE artist1id=?";
         return count(sql,artistid);
+    }
+
+    @Override
+    public List<SongModel> find10AddSong() {
+        String sql = "SELECT * FROM (SELECT * FROM Song ORDER BY songid DESC LIMIT 10) sub ORDER BY songid ASC";
+        return query(sql, new SongMapper());
     }
 }

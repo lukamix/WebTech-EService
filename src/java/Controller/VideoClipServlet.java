@@ -32,6 +32,7 @@ public class VideoClipServlet extends HttpServlet {
             ArtistService as = new ArtistService();
             List<ArtistModel> artist = as.findAll();
             if(vmlist!=null){
+                request.setAttribute("page", page);
                 request.setAttribute("count", count);
                 request.setAttribute("Nrecord",vmlist.size());
                 for(int i=0;i<vmlist.size();i++){
@@ -40,6 +41,7 @@ public class VideoClipServlet extends HttpServlet {
                     request.setAttribute("artist"+Integer.toString(i), artist.get(am.getArtistid()-1).getArtistname());
                     request.setAttribute("thumbnail"+Integer.toString(i),vmlist.get(i).getThumbnaillink());
                     request.setAttribute("videoid"+Integer.toString(i),vmlist.get(i).getVideoid());
+                    request.setAttribute("artistid"+Integer.toString(i),vmlist.get(i).getArtist().getArtistid());
                 }
                 RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/VideoClip.jsp");
                 dispatch.forward(request,response);
