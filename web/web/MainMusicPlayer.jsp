@@ -23,11 +23,35 @@
             skip_next
         </span>
     </a>
+    <div class="volume">
+        <div class="range-slider">
+            <input type="range" id="range" min="0" max="10" step="0.1" value="10"
+                   oninput="changeVolume(this.value)" 
+                   onchange="changeVolume(this.value)"/>
+        </div> 
+        <a class="main-volume-up" href="#">
+            <span class="material-icons">
+                volume_up
+            </span>
+        </a>
+        <a class="main-volume-down" href="#">
+            <span class="material-icons">
+                volume_down
+            </span>
+        </a>
+        <a class="main-volume-mute" href="#">
+            <span class="material-icons">
+                volume_mute
+            </span>
+        </a>
+    </div>
    </div>
    <div class="main-play-bar">
     <span id="main-time">00:00</span>
     <div class="main-bar-bg">
-     <div class="main-progress"></div>
+        <div class="main-progress">
+            
+        </div>
     </div>
     <span id="main-total-time">00:00</span>
    </div>

@@ -6,7 +6,7 @@
     <a class = "xemtatca">
         <span>AUTOPLAY</span>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="video-check-box">
             <span class="slider round"></span>
         </label>
     </a>
@@ -21,6 +21,7 @@
                     <%if(request.getAttribute("videoid"+Integer.toString(i))!=null){%>
                         <div class="newmusic-card">
                             <div class="image-card">
+                                <input value="<%=request.getAttribute("videoid"+Integer.toString(i+1))%>" name="video-id" type="hidden" id="video-id"/>
                             <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(i))%>">
                                 <img src=<%=request.getAttribute("imagelink"+Integer.toString(i))%> alt=""></img>
                             </a>
