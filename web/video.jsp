@@ -23,4 +23,6 @@
         </section>
          <jsp:include page="/common/footer.jsp"/>
     </body>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type ="text/javascript" src ="JS/Mp4Play.js"/></script>
 </html>
