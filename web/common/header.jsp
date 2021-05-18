@@ -14,11 +14,7 @@
         </li>
         <li><a href="Song?page=1">Bài Hát</a>
         </li>
-        <li><a href="#">Nghệ Sĩ</a>
-        </li>
-        <li><a href="#">Anime</a>
-        </li>
-        <li><a href="#">Tiktok</a>
+        <li><a href="tiktok?page=1">Tiktok</a>
         </li>
     </ul>
     
