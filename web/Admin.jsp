@@ -20,11 +20,6 @@
                 </div>
                 <div class="admin-sub-info">
                 <a href="#" class="admin-name"><%=request.getAttribute("userfullname")%></a>
-                    <img src="images/logo.jpg" alt="admin đẹp trai provjp"/>
-                    <div class="green-point"></div>
-                </div>
-                <div class="admin-sub-info">
-                <a href="#" class="admin-name">Nguyễn Bá Đức</a>
                 <a href="#" class="admin-dep-trai">Admin đẹp trai</a>
                 </div>
             </div>
@@ -98,14 +93,6 @@
                            </div>
                         </div>
                     </div>
-                    <button>
-                    <div class ="admin-header-right-side-admin-info">
-                        <img src="images/logo.jpg" alt="alt"/>
-                        <span class="material-icons">
-                        expand_more
-                        </span>
-                    </div>
-                    </button>
                 </div>
             </div>
             <div class="admin-content">
