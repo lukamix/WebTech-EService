@@ -9,4 +9,5 @@ public interface ITiktokDAO {
     List<TiktokModel> findAll(int firstindex,int maxItem);
     void update(Integer tiktokid,String html);
     void delete(Integer tiktokid);
+    void insert(String html);
 }

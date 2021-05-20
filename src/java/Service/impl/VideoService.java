@@ -64,4 +64,9 @@ public class VideoService implements IVideoService {
     public void update(String videoname, String videolink, String thumbnaillink, int viewcount,Integer videoid) {
         videoDAO.update(videoname, videolink, thumbnaillink, viewcount,videoid);
     }
+
+    @Override
+    public void insertVideo(String videoname, String videolink, String thumbnaillink, int artistid) {
+        videoDAO.insertVideo(videoname, videolink, thumbnaillink, artistid);
+    }
 }

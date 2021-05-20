@@ -18,8 +18,10 @@ public interface ISongDAO extends GenericDAO<SongModel> {
     void update(SongModel songModel);
     void delete(long songid);
     void delete(Integer songid);
-    void update(String songname, String link,int artist1id,String Quality,int songid);
+    void update(String songname, String link,int artist1id,String Quality,int viewcount,int songid);
     void delete(String songname);
+    void insertSong(String songname, String link,int artist1id,String imagelink,String genre,String Quality,String Author);
+    void insertSong(String songname, String link,int artist1id,String imagelink,String genre,String Quality);
     int countSong();
     int countSongByArtist(int artistid);
 }

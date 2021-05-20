@@ -72,4 +72,10 @@ public class VideoDAO extends AbstractDAO<VideoModel> implements IVideoDAO {
         String sql = "UPDATE Video SET videoname=?, videolink=?,thumbnaillink=?,viewcount=? WHERE videoid=?";
         update(sql,videoname,videolink,thumbnaillink,viewcount,videoid);
     }
+
+    @Override
+    public void insertVideo(String videoname, String videolink, String thumbnaillink, int artistid) {
+        String sql = "INSERT INTO video (videoname,videolink,thumbnaillink,artistid) VALUES (?,?,?,?)";
+        insert(sql,videoname,videolink,thumbnaillink,artistid);
+    }
 }
