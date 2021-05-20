@@ -29,7 +29,6 @@ public class SongServlet extends HttpServlet {
             SongService ss = new SongService();
             List<SongModel> smlist = ss.getAllSong(firstindex, 20);
             int count = ss.countSong();
-            System.out.println(count);
             ArtistService as = new ArtistService();
             List<ArtistModel> artist = as.findAll();
             if(smlist!=null){

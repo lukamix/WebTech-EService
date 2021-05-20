@@ -1,0 +1,36 @@
+.Tiktok-Trend{
+    margin-left:10%;
+    margin-top:5%;
+    min-height:75vh;
+}
+.Tiktok-Trend .heading h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family:Verdana, Geneva, sans-serif; 
+}
+.Tiktok-video-display .row {
+    display:flex;
+}
+.Tik-tok-video-container{
+    margin-right:100px;
+}
+.tiktok-pagination{
+    margin-top:15px;
+    width:200px;
+    height:40px;
+    margin-left: 40%;
+    margin-bottom: 10px;
+    display:inline-flex;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.tiktok-pagination button{
+    border:none;
+    border-left:1px solid #aaa;
+    background-color: white;
+    width:30px;
+    height:30px;
+}
+.tiktok-pagination button:hover{
+    background-color: #DDDDDD;
+}
