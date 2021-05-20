@@ -5,9 +5,9 @@ import DAO.impl.VideoDAO;
 import Model.VideoModel;
 import Service.IVideoService;
 import java.util.List;
-
+ 
 public class VideoService implements IVideoService {
-    
+     
     private IVideoDAO videoDAO;
     public VideoService(){
         videoDAO = new VideoDAO();
@@ -54,5 +54,14 @@ public class VideoService implements IVideoService {
     @Override
     public int countVideoByArtist(int artistid) {
         return videoDAO.countVideoByArtist(artistid);
+    }
+    @Override
+    public void delete(Integer videoid){
+        videoDAO.delete(videoid);
+    }
+
+    @Override
+    public void update(String videoname, String videolink, String thumbnaillink, int viewcount,Integer videoid) {
+        videoDAO.update(videoname, videolink, thumbnaillink, viewcount,videoid);
     }
 }

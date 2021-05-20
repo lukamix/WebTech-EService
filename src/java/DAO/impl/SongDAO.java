@@ -1,21 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO.impl;
 
 import DAO.ISongDAO;
 import Mapper.SongMapper;
 import Model.SongModel;
 import java.util.List;
-
-/**
- *
- * @author PV
- */
 public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
-
     @Override
     public SongModel findSongbyID(int songid) {
         StringBuilder sql = new StringBuilder("SELECT * FROM Song AS s");
@@ -60,12 +49,6 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
     public void delete(String songname) {
         String sql = "DELETE FROM Song WHERE songname = ?";
 	update(sql, songname);
-    }
-
-    @Override
-    public List<SongModel> findAll() {
-        String sql = "SELECT * FROM Song";
-	return query(sql, new SongMapper());
     }
 
     @Override
@@ -125,5 +108,15 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
     public List<SongModel> find10AddSong() {
         String sql = "SELECT * FROM (SELECT * FROM Song ORDER BY songid DESC LIMIT 10) sub ORDER BY songid ASC";
         return query(sql, new SongMapper());
+    }
+    @Override
+    public void delete(Integer songid){
+        String sql = "DELETE FROM SOng WHERE songid=?";
+        delete(sql,songid);
+    }
+    @Override
+    public void update(String songname, String link,int artist1id,String Quality,int songid){
+        String sql = "UPDATE Song SET songname=?,link=?,artist1id=?,Quality=? WHERE songid=?";
+        update(sql,songname,link, artist1id,Quality,songid);
     }
 }

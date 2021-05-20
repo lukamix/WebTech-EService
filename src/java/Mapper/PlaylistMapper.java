@@ -3,7 +3,7 @@ package Mapper;
 import Model.PlaylistModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+ 
 public class PlaylistMapper implements RowMapper<PlaylistModel> {
 
     @Override
@@ -19,5 +19,4 @@ public class PlaylistMapper implements RowMapper<PlaylistModel> {
             return null;
         }
     }
-    
 }

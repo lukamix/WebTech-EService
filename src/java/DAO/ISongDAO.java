@@ -7,7 +7,6 @@ public interface ISongDAO extends GenericDAO<SongModel> {
     SongModel findSongbyID(int songid);
     SongModel findSongbyName(String songname);
     List<SongModel> getAllSong(int firstindex,int maxItem);
-    List<SongModel> findAll();
     List<SongModel> find10NewSong();
     List<SongModel> find10AddSong();
     List<SongModel> find10relatedSong(int artistid);
@@ -18,6 +17,8 @@ public interface ISongDAO extends GenericDAO<SongModel> {
     int getTotalSong();
     void update(SongModel songModel);
     void delete(long songid);
+    void delete(Integer songid);
+    void update(String songname, String link,int artist1id,String Quality,int songid);
     void delete(String songname);
     int countSong();
     int countSongByArtist(int artistid);
