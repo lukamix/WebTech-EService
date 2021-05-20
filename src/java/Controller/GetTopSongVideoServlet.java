@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "BXH", urlPatterns = {"/BXH"})
 public class GetTopSongVideoServlet extends HttpServlet {
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

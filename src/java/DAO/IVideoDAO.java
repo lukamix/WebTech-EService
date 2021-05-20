@@ -12,5 +12,7 @@ public interface IVideoDAO extends GenericDAO<VideoModel> {
     List<VideoModel> getAllVideo(int firstindex,int maxItem);
     List<VideoModel> findVideoByArtist(int artistid,int firstindex,int maxItem);
     int countVideo();
+    void delete(Integer videoid);
+    void update(String videoname,String videolink,String thumbnaillink,int viewcount,Integer videoid);
     int countVideoByArtist(int artistid);
 }

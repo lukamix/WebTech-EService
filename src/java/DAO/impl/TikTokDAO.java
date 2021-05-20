@@ -25,4 +25,14 @@ public class TikTokDAO extends AbstractDAO<TiktokModel> implements ITiktokDAO {
         String sql = "SELECT * FROM tiktok LIMIT ?,?";
         return query(sql,new TiktokMapper(),firstindex,maxItem);
     }
+    @Override
+    public void delete(Integer tiktokid){
+        String sql = "DELETE FROM Tiktok WHERE tiktokid=?";
+        delete(sql,tiktokid);
+    }
+    @Override
+    public void update(Integer tiktokid,String html){
+        String sql = "UPDATE Tiktok SET html=? WHERE tiktokid=?";
+        update(sql,html,tiktokid);
+    }
 }

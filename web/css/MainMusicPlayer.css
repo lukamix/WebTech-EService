@@ -176,10 +176,12 @@
     color: gray;
 }
 #main-scroll .Container .song{
-    padding-left:20px;
+    width: 70%;
+    margin-left:20px;
 }
 #main-scroll .Container .artist{
-    padding-left:50%;
+     width: 30%;
+    float:right;
 }
 #main-scroll .Container .artist a{
     

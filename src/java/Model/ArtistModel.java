@@ -1,5 +1,5 @@
 package Model;
-
+ 
 public class ArtistModel {
     private int artistid;
     private String artistname;

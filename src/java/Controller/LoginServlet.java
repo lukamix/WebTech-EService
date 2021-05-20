@@ -4,6 +4,7 @@ import Model.UserInfoModel;
 import Model.UserModel;
 import Service.impl.UserInfoService;
 import Service.impl.UserService;
+import Utils.CheckRole;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "Home", urlPatterns = {"/Home"})
 public class LoginServlet extends HttpServlet {
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -25,33 +26,36 @@ public class LoginServlet extends HttpServlet {
         try{
             String username = request.getParameter("username");
             String password = request.getParameter("userpassword");
-            
-            deleteCookie(request,response);
-            Cookie userName = new Cookie("username", 
-                username);
-            Cookie passWord = new Cookie("password", 
-                password);
-            
-            userName.setMaxAge(60 * 60 * 24);
-            passWord.setMaxAge(60 * 60 * 24);
-            
-            response.addCookie(userName);
-            response.addCookie(passWord);
-            
             UserService newuserService = new UserService();
             UserInfoService newuserInfoService = new UserInfoService();
             UserModel userModel = newuserService.findByUserNameAndPassword(username, password);
             if(userModel!=null){
+                deleteCookie(request,response);
+                Cookie userName = new Cookie("username", 
+                    username);
+                Cookie passWord = new Cookie("password", 
+                    password);
+                
+                userName.setMaxAge(60 * 60 * 24);
+                passWord.setMaxAge(60 * 60 * 24);
+
+                response.addCookie(userName);
+                response.addCookie(passWord);
                 UserInfoModel tmp = newuserInfoService.findUserInfoById(userModel.getUserid());
                 HttpSession session = request.getSession();
                 session.setAttribute("username",tmp.getLastname());
-                
+
                 Cookie lastName = new Cookie("lastname",tmp.getLastname());
                 lastName.setMaxAge(60 * 60 * 24);
                 response.addCookie(lastName);
-                
-                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
-                dispatch.forward(request,response);
+                if(CheckRole.getInstance().byUserNameAndPassword(username, password)){
+                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/admin");
+                    dispatch.forward(request,response);
+                }
+                else{        
+                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
+                    dispatch.forward(request,response);
+                }
             }
             else{
                 out.println("<script type=\"text/javascript\">");

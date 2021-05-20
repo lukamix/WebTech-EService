@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Service.impl;
 
 import DAO.IUserInfoDAO;
 import DAO.impl.UserInfoDAO;
 import Model.UserInfoModel;
 import Service.IUserInfoService;
-
+import java.util.List;
+ 
 public class UserInfoService implements IUserInfoService{
-
+ 
     private IUserInfoDAO userinfoDAO;
     public UserInfoService(){
         userinfoDAO = new UserInfoDAO();
@@ -29,6 +25,11 @@ public class UserInfoService implements IUserInfoService{
     @Override
     public UserInfoModel findUserInfoByEmail(String email) {
         return userinfoDAO.findUserInfoByEmail(email);
+    }
+
+    @Override
+    public List<UserInfoModel> findAll(int firstindex, int maxItem) {
+        return userinfoDAO.findAll(firstindex, maxItem);
     }
     
 }
