@@ -4,7 +4,7 @@
     <!--logo c?a web (hi?n ? ??u trang)   -->
     <link rel="stylesheet" href = "css/headerstyle.css"/>
     <a href="home" class="logo">
-        <img src="images/logo.jpg" alt="alt"/>
+        <img src="images/logo.jpg" alt="alt" style="border-radius:30px;"/>
     </a>
     <!--menu--->
     <ul class="menu">
@@ -35,6 +35,11 @@
             </ul>
         </div>
     </div>
+    <a href="upload" style="color:white">
+        <span class="material-icons" style="font-size:30px;margin-top:15px;">
+            file_upload
+        </span>
+    </a>
     <!-- Đăng nhập && Đăng kí -->
     <div class="Register" id="register">
         <%

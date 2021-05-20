@@ -15,4 +15,5 @@ public interface IVideoService {
     int countVideoByArtist(int artistid);
     void delete(Integer videoid);
     void update(String videoname,String videolink,String thumbnaillink,int viewcount,Integer videoid);
+    void insertVideo(String videoname,String videolink,String thumbnaillink,int artistid);
 }

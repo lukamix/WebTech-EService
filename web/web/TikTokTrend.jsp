@@ -8,11 +8,11 @@
         <%for(int i=0;i<3;i++){%>
             <div class="row">
                 <%for(int j=0;j<3;j++){%>
-                <%if(request.getAttribute("html"+Integer.toString(3*i+j))!=null){%>
-                <div class="Tik-tok-video-container">
-                    <%=request.getAttribute("html"+Integer.toString(3*i+j))%>
-                </div>
-                <%}%>
+                    <%if(request.getAttribute("html"+Integer.toString(3*i+j))!=null){%>
+                        <div class="Tik-tok-video-container">
+                            <%=request.getAttribute("html"+Integer.toString(3*i+j))%>
+                        </div>
+                    <%}%>
                 <%}%>
             </div>
         <%}%>

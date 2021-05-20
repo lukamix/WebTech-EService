@@ -17,16 +17,17 @@ public class UpdateSong extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        int songid = Integer.parseInt(request.getParameter("songid").toString());
+        int songid = Integer.parseInt(request.getParameter("songid"));
         String songname = request.getParameter("songname");
         String link = request.getParameter("link");
+        int songview = Integer.parseInt(request.getParameter("songview"));
         int artist1id = Integer.parseInt(request.getParameter("artist1id"));
         String Quality = request.getParameter("Quality");
         try{
             List<String> Cookie = CheckRole.getInstance().getCookie(request);
             if(CheckRole.getInstance().byUserNameAndPassword(Cookie.get(0),Cookie.get(1))){
                 SongService ss = new SongService();
-                ss.update(songname, link, artist1id,Quality,songid);
+                ss.update(songname, link, artist1id,Quality,songview,songid);
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Cập Nhật Thành Công !');");
                 out.println("window.location.href='admin?songpage=1';");

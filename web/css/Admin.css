@@ -100,6 +100,18 @@ body{
     display:flex;
     align-items: center;
 }
+.right-panel .admin-header .replace-for-left-panel-responsive{
+    display:none;
+    border:2px dotted white;
+    vertical-align: middle; 
+    background: pink;
+    height:100%;
+}
+.right-panel .admin-header .replace-for-left-panel-responsive img{
+    border-radius: 45px;
+    width:45px;
+    height:45px;
+}
 .right-panel .admin-header .phone-number{
     font-size:12px;
     font-weight: bold;
@@ -184,9 +196,23 @@ body{
     height:30px;
     border-radius:30px;
 }
+.admin-header-right-side-admin-info:hover{
+    cursor: pointer;
+}
+.admin-header-right-side-admin-info:hover .sub-admin-info{
+    display:block;
+}
 .admin-content{
     background-color: ghostwhite;
     width:100%;
+}
+.sub-admin-info{
+    
+}
+.sub-admin-info img{
+    width:50px;
+    height:50px;
+    border-radius: 50px;
 }
 .table{
     border:1px solid black;
@@ -256,4 +282,35 @@ textarea:focus, input:focus{
     width:100%;
      word-wrap: break-word;
      word-break: break-all;
+}
+@media only screen and (max-width: 865px){
+    .left-panel{
+        display:none;
+    }
+    .right-panel{
+        width:100vw;
+    }
+    .right-panel .admin-header .replace-for-left-panel-responsive{
+        display:block;
+    }
+}
+@media only screen and (max-width: 750px){
+    .search{
+        width:200px;
+    }
+}
+@media only screen and (max-width: 650px){
+    .phone-number{
+        display:none;
+    }
+}
+@media only screen and (max-width: 460px){
+    .admin-header-right-side button span{
+        display:none;
+    }
+}
+@media only screen and (max-width: 380px){
+    .search{
+        display:none;
+    }
 }

@@ -26,5 +26,15 @@ public class ArtistService implements IArtistService{
     public List<ArtistModel> find5MostFavouriteArtist() {
         return artistDAO.find5MostFavouriteArtist();
     }
+
+    @Override
+    public ArtistModel findArtistByName(String artistname) {
+        return artistDAO.findArtistByName(artistname);
+    }
+
+    @Override
+    public void insert(String artistname) {
+        artistDAO.insert(artistname);
+    }
     
 }

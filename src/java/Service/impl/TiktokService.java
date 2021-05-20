@@ -31,5 +31,10 @@ public class TiktokService implements ITiktokService{
     public void update(Integer tiktokid, String html) {
         tiktokDAO.update(tiktokid, html);
     }
+
+    @Override
+    public void insert(String html) {
+        tiktokDAO.insert(html);
+    }
     
 }

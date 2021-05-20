@@ -3,12 +3,14 @@ package Controller;
 import Model.RoleModel;
 import Model.SongModel;
 import Model.TiktokModel;
+import Model.UserInfoModel;
 import Model.UserModel;
 import Model.User_RoleModel;
 import Model.VideoModel;
 import Service.impl.RoleService;
 import Service.impl.SongService;
 import Service.impl.TiktokService;
+import Service.impl.UserInfoService;
 import Service.impl.UserService;
 import Service.impl.User_RoleService;
 import Service.impl.VideoService;
@@ -38,12 +40,22 @@ public class AdminServlet extends HttpServlet {
         else{
         response.setContentType("text/html;charset=UTF-8");
         UserService us = new UserService();
+        int userid = us.findByUserName(Cookie.get(0)).getUserid();
+        UserInfoService uis = new UserInfoService();
+        UserInfoModel uim = uis.findUserInfoById(userid);
+        String userfistname = uim.getFirstname();
+        String userlastname = uim.getLastname();
+        String useremail = uim.getEmail();
+        String avatarlink = uim.getAvatarlink();
         RoleService rs = new RoleService();
         User_RoleService urs = new User_RoleService();
         SongService ss = new SongService();
         VideoService vs = new VideoService();
         TiktokService ts = new TiktokService();
         PrintWriter out = response.getWriter();
+        request.setAttribute("userfullname", userfistname+" "+userlastname);
+        request.setAttribute("useremail",useremail);
+        request.setAttribute("avatarlink", avatarlink);
         int userpage,songpage,videopage,tiktokpage,count;
         try{
             if(request.getParameter("userpage")!=null){
@@ -74,6 +86,7 @@ public class AdminServlet extends HttpServlet {
                         request.setAttribute("songlink"+Integer.toString(i),smlist.get(i).getLink());
                         request.setAttribute("artist1id"+Integer.toString(i),smlist.get(i).getArtist1id());
                         request.setAttribute("Quality"+Integer.toString(i),smlist.get(i).getQuality());
+                        request.setAttribute("songview"+Integer.toString(i),smlist.get(i).getViewcount());
                     }
                 }
             }

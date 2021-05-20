@@ -58,7 +58,6 @@
                 <span>hoặc sử dụng tài khoản cá nhân</span>
                 <input type="text" placeholder="Tên đăng nhập" name ="username" />
                 <input type="password" placeholder="Mật khẩu" name = "userpassword"/>
-                <a href="#">Quên mật khẩu?</a>
                 <button>Đăng nhập</button>
             </form>
         </div>
