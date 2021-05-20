@@ -3,7 +3,7 @@ package Mapper;
 import Model.Playlist_SongModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+ 
 public class Playlist_SongMapper implements RowMapper<Playlist_SongModel> {
 
     @Override
@@ -17,5 +17,4 @@ public class Playlist_SongMapper implements RowMapper<Playlist_SongModel> {
             return null;
         }
     }
-    
 }

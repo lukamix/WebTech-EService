@@ -25,10 +25,10 @@ nav .menu li a{
     margin: 0px;
     padding: 0px 22px;
     display: flex;
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-transform: uppercase;
     font-weight: 500;
-    color: #585858;
+    color: white;
     letter-spacing: 1px;
 }
 .search-box{

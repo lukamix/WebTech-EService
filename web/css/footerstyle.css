@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .footer {
     background-color: pink;
     bottom: 0;
@@ -11,4 +12,16 @@
     font-weight: bold;
     text-align: center;
     padding-top: 30px;
+}
+.contact{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    line-height: 38px;
+}
+.contact .iconify{
+    color:white;
+    margin-left:10px;
 }

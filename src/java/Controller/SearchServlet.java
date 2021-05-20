@@ -14,7 +14,6 @@ import javax.xml.parsers.SAXParserFactory;
 
 @WebServlet(name = "SearchServlet", urlPatterns = {"/SearchServlet"})
 public class SearchServlet extends HttpServlet {
-    
     private static final long serialVersionUID = 1L;
     SAXParserFactory factory;
 

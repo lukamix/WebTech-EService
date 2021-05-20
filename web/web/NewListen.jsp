@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href = "css/NewListen.css"/>
 <div class="NewListen">
-    <a href="#" class = "new">Thêm mới nhất</a>
+    <a href="#" class = "new">Mới Cập Nhật</a>
     <a href="#" class = "xemtatca">Nghe tất cả</a>
     <div class="newListen">
         <div class="newlisten-container">

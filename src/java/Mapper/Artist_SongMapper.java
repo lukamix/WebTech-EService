@@ -3,7 +3,7 @@ package Mapper;
 import Model.Artist_SongModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+ 
 public class Artist_SongMapper implements RowMapper<Artist_SongModel> {
 
     @Override
@@ -18,5 +18,4 @@ public class Artist_SongMapper implements RowMapper<Artist_SongModel> {
             return null;
         }
     }
-    
 }

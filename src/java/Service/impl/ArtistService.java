@@ -5,7 +5,7 @@ import DAO.impl.ArtistDAO;
 import Model.ArtistModel;
 import Service.IArtistService;
 import java.util.List;
-
+ 
 public class ArtistService implements IArtistService{
     
     private IArtistDAO artistDAO;
