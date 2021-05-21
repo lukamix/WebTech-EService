@@ -15,11 +15,11 @@
             </a>
             <div class="admin-info">
                 <div class="admin-avatar">
-                    <img src="images/logo.jpg" alt="admin đẹp trai provjp"/>
+                    <img src=<%=request.getAttribute("avatarlink")%> alt="admin đẹp trai provjp"/>
                     <div class="green-point"></div>
                 </div>
                 <div class="admin-sub-info">
-                <a href="#" class="admin-name">Nguyễn Bá Đức</a>
+                <a href="#" class="admin-name"><%=request.getAttribute("userfullname")%></a>
                 <a href="#" class="admin-dep-trai">Admin đẹp trai</a>
                 </div>
             </div>
@@ -44,6 +44,13 @@
         </div>
         <div class="right-panel">
             <div class="admin-header">
+                <div class="replace-for-left-panel-responsive">
+                    <a href="home">
+                        <div class="heading">
+                            <img src="images/duc.jpg" alt="logo-page"/>
+                        </div>
+                    </a>
+                </div>
                 <div class="phone-number">Contact: +84365182504</div>
                 <div class="search-box">
                     <div class="search">
@@ -71,14 +78,21 @@
                     email
                     </span>
                     </button>
-                    <button>
                     <div class ="admin-header-right-side-admin-info">
-                        <img src="images/logo.jpg" alt="alt"/>
+                        <img src=<%=request.getAttribute("avatarlink")%> alt="alt"/>
                         <span class="material-icons">
-                        expand_more
+                            expand_more
                         </span>
+                        <div class="sub-admin-info" style="display:none;">
+                           <img src=<%=request.getAttribute("avatarlink")%> alt="alt"/>
+                           <div class="admin-name">
+                                
+                           </div>
+                           <div class="admin-email">
+                               
+                           </div>
+                        </div>
                     </div>
-                    </button>
                 </div>
             </div>
             <div class="admin-content">
@@ -154,6 +168,7 @@
                                 <div class="td" id="slink">Song Link</div>
                                 <div class="td" id="aid">Artist ID</div>
                                 <div class="td" id="squal">Quality</div>
+                                <div class="td" id="sview">View</div>
                                 <div class="td" id="sact">Action</div>
                             </div>
                             <%
@@ -171,6 +186,8 @@
                                            value="<%=request.getAttribute("artist1id"+Integer.toString(i))%>"></div>
                                 <div class="td"><input type="text" name="Quality"
                                            value="<%=request.getAttribute("Quality"+Integer.toString(i))%>"></div>
+                                <div class="td"><input type="text" name="songview"
+                                           value="<%=request.getAttribute("songview"+Integer.toString(i))%>"></div>
                                 <div class="td">
                                     <button id="supdate">UPDATE</button>
                                 </div>
