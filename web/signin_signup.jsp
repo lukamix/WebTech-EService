@@ -1,6 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.math.BigInteger" %>
+<%@page import="java.nio.charset.StandardCharsets" %>
+<%@page import="java.security.MessageDigest" %>
+<%@page import="java.security.NoSuchAlgorithmException" %>
 
-</body>
 </html>
 <!DOCTYPE html>
 <html lang="en">

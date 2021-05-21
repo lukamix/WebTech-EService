@@ -57,8 +57,13 @@ public class ArtistDAO extends AbstractDAO<ArtistModel> implements IArtistDAO {
     @Override
     public ArtistModel findArtistByName(String artistname) {
         String sql = "SELECT * FROM Artist AS s WHERE artistname = ?";
-        List<ArtistModel> artist = query(sql, new ArtistMapper());
-        return artist.isEmpty() ? null : artist.get(0);
+        List<ArtistModel> artist = query(sql, new ArtistMapper(),artistname);
+        if(artist.isEmpty()){
+            return null;
+        }
+        else{
+            return artist.get(0);
+        }
     }
 
     @Override
