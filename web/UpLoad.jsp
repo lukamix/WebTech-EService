@@ -11,4 +11,5 @@
         </section>
         <jsp:include page="/common/footer.jsp"/>
     </body>
+    <script type ="text/javascript" src ="JS/UploadPage.js"/></script>
 </html>

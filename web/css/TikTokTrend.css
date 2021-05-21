@@ -8,17 +8,21 @@
     font-weight: bold;
     font-family:Verdana, Geneva, sans-serif; 
 }
-.Tiktok-video-display .row {
+.Tiktok-video-display{
     display:flex;
 }
+.Tiktok-video-display .row {
+    display:flex;
+    flex-direction: column;
+}
 .Tik-tok-video-container{
-    margin-right:100px;
+    margin-right:3vw;   
 }
 .tiktok-pagination{
-    margin-top:15px;
+    margin-top:30vh;
     width:200px;
     height:40px;
-    margin-left: 40%;
+    margin-left: 100vh;
     margin-bottom: 10px;
     display:inline-flex;
     border-radius: 5px;

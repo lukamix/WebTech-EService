@@ -43,7 +43,6 @@ a{
 }
 @media only screen and (max-width: 640px){
     .v{
-        border:1px solid red;
         height:130vh;
     }
     .horizontaldisplay .verticaldisplay1{
@@ -56,43 +55,36 @@ a{
 }
 @media only screen and (max-width: 530px){
     .v{
-        border:1px solid red;
         height:123vh;
     }
 }
 @media only screen and (max-width: 490px){
     .v{
-        border:1px solid red;
         height:120vh;
     }
 }
 @media only screen and (max-width: 460px){
     .v{
-        border:1px solid red;
         height:110vh;
     }
 }
 @media only screen and (max-width: 420px){
     .v{
-        border:1px solid red;
         height:102vh;
     }
 }
 @media only screen and (max-width: 380px){
     .v{
-        border:1px solid red;
         height:96vh;
     }
 }
 @media only screen and (max-width: 350px){
     .v{
-        border:1px solid red;
         height:92vh;
     }
 }
 @media only screen and (max-width: 300px){
     .v{
-        border:1px solid red;
         height:85vh;
     }
 }
