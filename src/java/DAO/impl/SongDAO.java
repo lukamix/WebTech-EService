@@ -122,7 +122,7 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
 
     @Override
     public void insertSong(String songname, String link, int artist1id, String imagelink, String genre, String Quality, String Author) {
-        String sql = "INSERT INTO Song (songname,link,artist1id,imagelink,genre,author,Quality) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO Song (songname,link,artist1id,imagelink,genre,author,Quality) VALUES (?,?,?,?,?,?,?)";
         insert(sql,songname,link,artist1id,imagelink,genre,Author,Quality);
     }
 

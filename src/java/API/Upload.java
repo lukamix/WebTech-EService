@@ -57,7 +57,7 @@ public class Upload extends HttpServlet {
                     artistid = as.findArtistByName(artist).getArtistid();
                     vs.insertVideo(videoname, videolink, thumbnail, artistid);
                     out.println("<script type=\"text/javascript\">");
-                    out.println("alert('Cập Nhật Bài Hát Thành Công !');");
+                    out.println("alert('Cập Nhật Video Thành Công !');");
                     out.println("window.location.href='upload';");
                     out.println("</script>");
                     break;

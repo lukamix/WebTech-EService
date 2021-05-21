@@ -6,7 +6,7 @@
     </div>
     <div class="content">
         <img src="images/rxdtv.jfif" alt="rất xinh đẹp ,tuyệt vời ,xin cám ơn"/>
-        <form action="Upload" method="POST">
+        <form action="Upload" accept-charset="utf-8" method="POST">
             <label for="chon">Kiểu upload:</label>
             <select name="type" id="type" onchange="onChoose()">
                 <option value="Song">Song</option>

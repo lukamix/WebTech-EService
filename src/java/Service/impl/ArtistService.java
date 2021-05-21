@@ -29,7 +29,10 @@ public class ArtistService implements IArtistService{
 
     @Override
     public ArtistModel findArtistByName(String artistname) {
-        return artistDAO.findArtistByName(artistname);
+        if(artistDAO.findArtistByName(artistname)!=null){
+            return artistDAO.findArtistByName(artistname);
+        }
+        return null;
     }
 
     @Override
