@@ -115,8 +115,20 @@ public class SongDAO extends AbstractDAO<SongModel> implements ISongDAO {
         delete(sql,songid);
     }
     @Override
-    public void update(String songname, String link,int artist1id,String Quality,int songid){
-        String sql = "UPDATE Song SET songname=?,link=?,artist1id=?,Quality=? WHERE songid=?";
-        update(sql,songname,link, artist1id,Quality,songid);
+    public void update(String songname, String link,int artist1id,String Quality,int viewcount,int songid){
+        String sql = "UPDATE Song SET songname=?,link=?,artist1id=?,Quality=?,viewcount=? WHERE songid=?";
+        update(sql,songname,link, artist1id,Quality,viewcount,songid);
+    }
+
+    @Override
+    public void insertSong(String songname, String link, int artist1id, String imagelink, String genre, String Quality, String Author) {
+        String sql = "INSERT INTO Song (songname,link,artist1id,imagelink,genre,author,Quality) VALUES (?,?,?,?,?,?)";
+        insert(sql,songname,link,artist1id,imagelink,genre,Author,Quality);
+    }
+
+    @Override
+    public void insertSong(String songname, String link, int artist1id, String imagelink, String genre, String Quality) {
+        String sql = "INSERT INTO Song (songname,link,artist1id,imagelink,genre,Quality) VALUES (?,?,?,?,?,?)";
+        insert(sql,songname,link,artist1id,imagelink,genre,Quality);
     }
 }

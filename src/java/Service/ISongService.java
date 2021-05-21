@@ -17,5 +17,7 @@ public interface ISongService {
     List<SongModel> getAllSong(int firstindex,int maxItem);
     List<SongModel> findSongByArtist(int artistid,int firstindex,int maxItem);
     void delete(Integer songid);
-    void update(String songname, String link,int artist1id,String Quality,int songid);
+    void update(String songname, String link,int artist1id,String Quality,int viewcount,int songid);
+    void insertSong(String songname, String link,int artist1id,String imagelink,String genre,String Quality,String Author);
+    void insertSong(String songname, String link,int artist1id,String imagelink,String genre,String Quality);
 }

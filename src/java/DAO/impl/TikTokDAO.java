@@ -35,4 +35,10 @@ public class TikTokDAO extends AbstractDAO<TiktokModel> implements ITiktokDAO {
         String sql = "UPDATE Tiktok SET html=? WHERE tiktokid=?";
         update(sql,html,tiktokid);
     }
+
+    @Override
+    public void insert(String html) {
+        String sql = "INSERT INTO tiktok (html) VALUES (?)";
+        insert(sql,html);
+    }
 }

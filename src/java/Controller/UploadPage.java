@@ -1,44 +1,22 @@
-package API;
+package Controller;
 
-import Service.impl.SongService;
-import Utils.CheckRole;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-@WebServlet(name = "UpdateSong", urlPatterns = {"/update-song"})
-public class UpdateSong extends HttpServlet {
+@WebServlet(name = "UploadPage", urlPatterns = {"/upload"})
+public class UploadPage extends HttpServlet {
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        int songid = Integer.parseInt(request.getParameter("songid"));
-        String songname = request.getParameter("songname");
-        String link = request.getParameter("link");
-        int songview = Integer.parseInt(request.getParameter("songview"));
-        int artist1id = Integer.parseInt(request.getParameter("artist1id"));
-        String Quality = request.getParameter("Quality");
-        try{
-            List<String> Cookie = CheckRole.getInstance().getCookie(request);
-            if(CheckRole.getInstance().byUserNameAndPassword(Cookie.get(0),Cookie.get(1))){
-                SongService ss = new SongService();
-                ss.update(songname, link, artist1id,Quality,songview,songid);
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Cập Nhật Thành Công !');");
-                out.println("window.location.href='admin?songpage=1';");
-                out.println("</script>");
-            }
-            else{
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-        }
-        finally{
-            out.close();
+        try (PrintWriter out = response.getWriter()) {
+            RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/UpLoad.jsp");
+            dispatch.forward(request,response);
         }
     }
 

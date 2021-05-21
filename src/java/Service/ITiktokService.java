@@ -8,4 +8,5 @@ public interface ITiktokService {
     int countTiktokVideo();
     List<TiktokModel> findAll(int firstindex,int maxItem);
     void update(Integer tiktokid,String html);
+    void insert(String html);
 }

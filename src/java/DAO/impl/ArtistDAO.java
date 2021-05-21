@@ -53,5 +53,18 @@ public class ArtistDAO extends AbstractDAO<ArtistModel> implements IArtistDAO {
         sql.append(" WHERE artistid <=5");
         return query(sql.toString(), new ArtistMapper());
     }
+
+    @Override
+    public ArtistModel findArtistByName(String artistname) {
+        String sql = "SELECT * FROM Artist AS s WHERE artistname = ?";
+        List<ArtistModel> artist = query(sql, new ArtistMapper());
+        return artist.isEmpty() ? null : artist.get(0);
+    }
+
+    @Override
+    public void insert(String artistname) {
+        String sql ="INSERT INTO Artist (artistname) VALUES (?)";
+        insert(sql,artistname);
+    }
     
 }
