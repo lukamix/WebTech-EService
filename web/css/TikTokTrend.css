@@ -16,9 +16,9 @@
     flex-direction: column;
 }
 .Tik-tok-video-container{
+    margin-right:3vw;   
 }
 .tiktok-pagination{
-    position:fixed;
     margin-top:30vh;
     width:200px;
     height:40px;
