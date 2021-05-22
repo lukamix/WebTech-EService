@@ -16,6 +16,7 @@ public class UpdateSong extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         int songid = Integer.parseInt(request.getParameter("songid"));
         String songname = request.getParameter("songname");

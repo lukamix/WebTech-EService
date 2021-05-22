@@ -17,7 +17,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
     public Connection getConnection() throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/webstreamingmusic?characterEncoding=utf8";
+            String url = "jdbc:mysql://localhost:3306/webstreamingmusic?useUnicode=true&characterEncoding=utf-8";
             String user = "root";
             String password = "";
             return DriverManager.getConnection(url, user, password);
@@ -69,6 +69,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     statement.setLong(index, (Long) parameter);
                 } else if (parameter instanceof String) {
                     statement.setString(index, (String) parameter);
+                    System.out.println(parameter);
                 } else if (parameter instanceof Integer) {
                     statement.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Timestamp) {
