@@ -18,6 +18,7 @@ public class Upload extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String type =request.getParameter("type");
         try (PrintWriter out = response.getWriter()) {
             switch(type){
@@ -48,6 +49,13 @@ public class Upload extends HttpServlet {
                     ArtistService as = new ArtistService();
                     String videoname = request.getParameter("vname");
                     String videolink = request.getParameter("vlink");
+                    String format1 = "https://www.youtube.com/watch?v=";
+                    String format2 = "https://youtu.be/";
+                    if(videolink.contains(format1)){
+                        videolink = "https://www.youtube.com/embed/"+videolink.substring(format1.length(), videolink.length());
+                    }else if(videolink.contains(format2)){
+                        videolink = "https://www.youtube.com/embed/"+videolink.substring(format2.length(), videolink.length());
+                    }
                     String thumbnail = request.getParameter("thumbnail");
                     String artist = request.getParameter("artist");
                     int artistid;
