@@ -111,6 +111,21 @@ LOCK TABLES `love` WRITE;
 /*!40000 ALTER TABLE `love` ENABLE KEYS */;
 UNLOCK TABLES;
 
+CREATE TABLE `hot_music_of_artist` (
+  `artistid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `artistname` varchar(100) DEFAULT NULL,
+  `artistdescription` text DEFAULT NULL,
+  `imagelink` text DEFAULT 'images/duc.jpg',
+  PRIMARY KEY (`artistid`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `music_award` (
+  `songid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `artistid` varchar(100) DEFAULT NULL,
+  `award` text DEFAULT NULL,
+  `note` text DEFAULT 'images/duc.jpg',
+  PRIMARY KEY (`artistid`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
 --
 -- Table structure for table `lyrics`
 --
