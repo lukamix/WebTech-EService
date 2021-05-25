@@ -78,12 +78,12 @@
             <li>
                 <div id="DownloadExtends">
                     <%if(request.getAttribute("songlink")!=null){%>
-                        Link: <a class="a128kbps" href =<%=request.getAttribute("songlink")%>>128kbps</a>
-                        Link: <a class="a320kbps" href =<%=request.getAttribute("songlink")%>>320kbps</a>
+                        Link: <a class="a128kbps" href ="<%=request.getAttribute("songlink")%>" target="_blank">128kbps</a>
+                        Link: <a class="a320kbps" href ="<%=request.getAttribute("songlink")%>" target="_blank">320kbps</a>
                     <%}%>
                     <%if(request.getAttribute("videolink")!=null){%>
-                        Link: <a class="a128kbps" href =<%=request.getAttribute("videolink")%>>128kbps</a>
-                        Link: <a class="a320kbps" href =<%=request.getAttribute("videolink")%>>320kbps</a>
+                        Link: <a class="a128kbps" href ="<%=request.getAttribute("videolink")%>" target="_blank">128kbps</a>
+                        Link: <a class="a320kbps" href ="<%=request.getAttribute("videolink")%>" target="_blank">320kbps</a>
                     <%}%>
                 </div>
             </li>

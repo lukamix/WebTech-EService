@@ -5,7 +5,7 @@ import DAO.impl.SongDAO;
 import Model.SongModel;
 import Service.ISongService;
 import java.util.List;
-
+ 
 public class SongService implements ISongService{
     
     private ISongDAO songDAO;
@@ -69,5 +69,25 @@ public class SongService implements ISongService{
     @Override
     public List<SongModel> find10TopSong() {
         return songDAO.find10TopSong();
+    }
+
+    @Override
+    public void delete(Integer songid) {
+        songDAO.delete(songid);
+    }
+
+    @Override
+    public void update(String songname, String link, int artist1id,String Quality,int viewcount,int songid) {
+        songDAO.update(songname, link, artist1id,Quality,viewcount,songid);
+    }
+
+    @Override
+    public void insertSong(String songname, String link, int artist1id, String imagelink, String genre, String Quality, String Author) {
+        songDAO.insertSong(songname, link, artist1id, imagelink, genre, Quality, Author);
+    }
+
+    @Override
+    public void insertSong(String songname, String link, int artist1id, String imagelink, String genre, String Quality) {
+        songDAO.insertSong(songname, link, artist1id, imagelink, genre, Quality);
     }
 }

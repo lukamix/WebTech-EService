@@ -1,7 +1,6 @@
 package DAO.impl;
 
 import DAO.IVideoDAO;
-import Mapper.SongMapper;
 import Mapper.VideoMapper;
 import Model.VideoModel;
 import java.util.List;
@@ -30,7 +29,7 @@ public class VideoDAO extends AbstractDAO<VideoModel> implements IVideoDAO {
 
     @Override
     public List<VideoModel> get10relatedvideo(int artistid) {
-        String sql = "SELECT * FROM (SELECT * FROM Video ORDER BY videoid DESC LIMIT 10) sub ORDER BY videoid ASC";
+        String sql = "SELECT * FROM (SELECT * FROM Video ORDER BY videoid DESC LIMIT 10) sub ORDER BY rand() ASC";
         return query(sql, new VideoMapper());
     }
 
@@ -62,5 +61,21 @@ public class VideoDAO extends AbstractDAO<VideoModel> implements IVideoDAO {
     public int countVideoByArtist(int artistid) {
         String sql ="SELECT COUNT(videoid) FROM Video WHERE artistid = ?";
         return count(sql,artistid);
+    }
+    @Override
+    public void delete(Integer videoid){
+        String sql = "DELETE FROM Video WHERE videoid=?";
+        delete(sql,videoid);
+    }
+    @Override
+    public void update(String videoname,String videolink,String thumbnaillink,int viewcount,Integer videoid){
+        String sql = "UPDATE Video SET videoname=?, videolink=?,thumbnaillink=?,viewcount=? WHERE videoid=?";
+        update(sql,videoname,videolink,thumbnaillink,viewcount,videoid);
+    }
+
+    @Override
+    public void insertVideo(String videoname, String videolink, String thumbnaillink, int artistid) {
+        String sql = "INSERT INTO video (videoname,videolink,thumbnaillink,artistid) VALUES (?,?,?,?)";
+        insert(sql,videoname,videolink,thumbnaillink,artistid);
     }
 }

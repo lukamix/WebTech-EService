@@ -2,7 +2,7 @@ package Service;
 
 import Model.VideoModel;
 import java.util.List;
-
+ 
 public interface IVideoService {
     List<VideoModel> get10lastvideo();
     VideoModel getVideoByName(String videoname);
@@ -13,4 +13,7 @@ public interface IVideoService {
     List<VideoModel> findVideoByArtist(int artistid,int firstindex,int maxItem);
     int countVideo();
     int countVideoByArtist(int artistid);
+    void delete(Integer videoid);
+    void update(String videoname,String videolink,String thumbnaillink,int viewcount,Integer videoid);
+    void insertVideo(String videoname,String videolink,String thumbnaillink,int artistid);
 }

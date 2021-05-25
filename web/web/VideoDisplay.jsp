@@ -8,15 +8,15 @@
         <%for(int i=0;i<4;i++){%>
         <div class="video-column">
             <%for(int j=0;j<5;j++){%>
-            <%if(Integer.parseInt(request.getAttribute("Nrecord").toString())>4*i+j){%>
+            <%if(Integer.parseInt(request.getAttribute("Nrecord").toString())>5*i+j){%>
             <div class="video-box">
-                <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>">
+                <a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(5*i+j))%>">
                     <div class="video-thumbnail">
                         <div class="video-duration">
                             <span class="material-icons">
                                 schedule
                             </span>
-                            <%if(request.getAttribute("duration"+Integer.toString(4*i+j))!=null){%>
+                            <%if(request.getAttribute("duration"+Integer.toString(5*i+j))!=null){%>
                                 02:00
                             <%}%>
                         </div>
@@ -26,11 +26,11 @@
                             </span>
                         </div>
                         <div class="video-quality">HD 1080p</div>
-                        <img src=<%=request.getAttribute("thumbnail"+Integer.toString(4*i+j))%> alt="alt"/>
+                        <img src=<%=request.getAttribute("thumbnail"+Integer.toString(5*i+j))%> alt="alt"/>
                     </div>
                 </a>
-                <div class="video-name"><a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(4*i+j))%>"><%=request.getAttribute("videoname"+Integer.toString(4*i+j))%></a></div>
-                <div class="video-artist"><a href="artist?artistid=<%=request.getAttribute("artistid"+Integer.toString(4*i+j))%>&songpage=1&videopage=1"><%=request.getAttribute("artist"+Integer.toString(4*i+j))%></a></div>
+                <div class="video-name"><a href="/Nhachayvjppro/mp4?videoid=<%=request.getAttribute("videoid"+Integer.toString(5*i+j))%>"><%=request.getAttribute("videoname"+Integer.toString(5*i+j))%></a></div>
+                <div class="video-artist"><a href="artist?artistid=<%=request.getAttribute("artistid"+Integer.toString(5*i+j))%>&songpage=1&videopage=1"><%=request.getAttribute("artist"+Integer.toString(5*i+j))%></a></div>
             </div>
             <%}%>
             <%}%>

@@ -1,6 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.math.BigInteger" %>
+<%@page import="java.nio.charset.StandardCharsets" %>
+<%@page import="java.security.MessageDigest" %>
+<%@page import="java.security.NoSuchAlgorithmException" %>
 
-</body>
 </html>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +61,6 @@
                 <span>hoặc sử dụng tài khoản cá nhân</span>
                 <input type="text" placeholder="Tên đăng nhập" name ="username" />
                 <input type="password" placeholder="Mật khẩu" name = "userpassword"/>
-                <a href="#">Quên mật khẩu?</a>
                 <button>Đăng nhập</button>
             </form>
         </div>

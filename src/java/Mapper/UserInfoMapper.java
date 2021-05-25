@@ -22,5 +22,4 @@ public class UserInfoMapper implements RowMapper<UserInfoModel>{
             return null;
         }
     }
-    
 }

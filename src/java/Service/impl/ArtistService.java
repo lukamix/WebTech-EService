@@ -5,7 +5,7 @@ import DAO.impl.ArtistDAO;
 import Model.ArtistModel;
 import Service.IArtistService;
 import java.util.List;
-
+ 
 public class ArtistService implements IArtistService{
     
     private IArtistDAO artistDAO;
@@ -25,6 +25,19 @@ public class ArtistService implements IArtistService{
     @Override
     public List<ArtistModel> find5MostFavouriteArtist() {
         return artistDAO.find5MostFavouriteArtist();
+    }
+
+    @Override
+    public ArtistModel findArtistByName(String artistname) {
+        if(artistDAO.findArtistByName(artistname)!=null){
+            return artistDAO.findArtistByName(artistname);
+        }
+        return null;
+    }
+
+    @Override
+    public void insert(String artistname) {
+        artistDAO.insert(artistname);
     }
     
 }

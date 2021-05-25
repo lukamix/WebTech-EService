@@ -10,14 +10,14 @@
     font-weight: bold;
     color:pink;
 }
-.YoutubeVideo #YoutubePlayer,.VideoInfo{
+.YoutubeVideo #player,.VideoInfo{
     padding-top : 10px;
 }
-.YoutubeVideo #YoutubePlayer{
+.YoutubeVideo #player{
     width:50vw;
     height:28.125vw;
 }
-.YoutubeVideo #YoutubePlayer iframe{
+.YoutubeVideo #player iframe{
     width:100%;
     height:100%;
 }
@@ -28,7 +28,7 @@
     .YoutubeVideo{
         width:80vw;
     }
-    .YoutubeVideo #YoutubePlayer{
+    .YoutubeVideo #player{
         width:80vw;
         height:45vw;
     }

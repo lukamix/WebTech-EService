@@ -81,45 +81,40 @@
 <div id="main-scroll" style="overflow:scroll;">
     <div class ="Container">
         <div class="song">
-            <a href="#">1. Cho mình em</a>
+            <a href="mp3?songid=23">1. Cho mình em</a>
         </div>
         <div class="artist">
-            <a href="#">Binz</a>
+            <a href="artist?artistid=2">Binz</a>
             <span>,</span>
-            <a href="#">Đen Vâu</a>
+            <a href="artist?artistid=21">Đen Vâu</a>
         </div>
     </div>
     <div class ="Container">
         <div class="song">
-            <a href="#">2. Okeokeoke</a>
+            <a href="mp3?songid=48">2. Okeokeoke</a>
         </div>
         <div class="artist">
-            <a href="#">Low G</a>
+            <a href="artist?artistid=7">Low G</a>
         </div>
     </div>
     <div class ="Container">
         <div class="song">
-            <a href="#">3. Làm Ngay Hôm Nay (#LNHN)</a>
+            <a href="mp3?songid=49">3. Làm Ngay Hôm Nay (#LNHN)</a>
         </div>
         <div class="artist">
             <a href="#">RPT Orijinn</a>
             <span>,</span>
             <a href="#">RPT Duke</a>
             <span>,</span>
-            <a href="#">RPT MCK</a>
+            <a href="artist?artistid=8">RPT MCK</a>
         </div>
     </div>
     <div class ="Container">
         <div class="song">
-            <a href="#">4. Đại Chiến Rap: Hero Team x Streamer Free Fire</a>
+            <a href="mp3?songid=50">4. Đừng Quên Tên Anh</a>
         </div>
         <div class="artist">
-            <a href="#">Hero Team</a>
-            <span>,</span>
-            <a href="#">T Gaming</a>
-            <span>,</span>
-            <a href="#">Gao Bạc TV</a>
-            <span>...</span>
+            <a href="artist?artistid=23">Hoa Vinh</a>
         </div>
     </div>
     <div class ="Container">

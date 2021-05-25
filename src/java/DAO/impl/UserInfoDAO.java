@@ -14,7 +14,6 @@ public class UserInfoDAO extends AbstractDAO<UserInfoModel> implements IUserInfo
         List<UserInfoModel> users = query(sql.toString(), new UserInfoMapper(), userid);
         return users.isEmpty() ? null : users.get(0);
     }
-
     @Override
     public Long InsertUserInfo(String lastname, String email) {
         String sql = "INSERT INTO UserInfo (lastname, email) VALUES (?,?)";
@@ -28,6 +27,12 @@ public class UserInfoDAO extends AbstractDAO<UserInfoModel> implements IUserInfo
         sql.append(" WHERE email = ?");
         List<UserInfoModel> users = query(sql.toString(), new UserInfoMapper(), email);
         return users.isEmpty() ? null : users.get(0);
+    }
+
+    @Override
+    public List<UserInfoModel> findAll(int firstindex,int maxItem) {
+        String sql = "SELECT * FROM UserInfo as u LIMIT ?,?";
+        return query(sql,new UserInfoMapper(),firstindex,maxItem);
     }
     
 }

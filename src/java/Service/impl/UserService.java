@@ -1,25 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Service.impl;
 
 import DAO.IUserDAO;
 import DAO.impl.UserDAO;
 import Model.UserModel;
 import Service.IUserService;
-
-/**
- *
- * @author PV
- */
+import java.util.List;
+ 
 public class UserService implements IUserService{
-
+ 
     private IUserDAO userDAO;
 
     public UserService() {
-            userDAO = new UserDAO();
+        userDAO = new UserDAO();
     }
     
     @Override
@@ -40,6 +32,26 @@ public class UserService implements IUserService{
     @Override
     public UserModel findByUserID(int id) {
         return userDAO.findByUserID(id);
+    }
+
+    @Override
+    public List<UserModel> finAll(int firstindex, int maxItem) {
+        return userDAO.finAll(firstindex, maxItem);
+    }
+
+    @Override
+    public int count() {
+        return userDAO.count();
+    }
+
+    @Override
+    public void delete(Integer userid) {
+        userDAO.delete(userid);
+    }
+
+    @Override
+    public void update(String username, String userpassword, Integer userid) {
+        userDAO.update(username, userpassword, userid);
     }
     
 }

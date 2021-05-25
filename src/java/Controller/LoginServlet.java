@@ -4,6 +4,8 @@ import Model.UserInfoModel;
 import Model.UserModel;
 import Service.impl.UserInfoService;
 import Service.impl.UserService;
+import Utils.CheckRole;
+import Utils.SHA256Encode;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -14,44 +16,48 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.security.NoSuchAlgorithmException; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "Home", urlPatterns = {"/Home"})
 public class LoginServlet extends HttpServlet {
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NoSuchAlgorithmException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try{
             String username = request.getParameter("username");
-            String password = request.getParameter("userpassword");
-            
-            deleteCookie(request,response);
-            Cookie userName = new Cookie("username", 
-                username);
-            Cookie passWord = new Cookie("password", 
-                password);
-            
-            userName.setMaxAge(60 * 60 * 24);
-            passWord.setMaxAge(60 * 60 * 24);
-            
-            response.addCookie(userName);
-            response.addCookie(passWord);
-            
+            String password =request.getParameter("userpassword");
             UserService newuserService = new UserService();
             UserInfoService newuserInfoService = new UserInfoService();
             UserModel userModel = newuserService.findByUserNameAndPassword(username, password);
             if(userModel!=null){
+                deleteCookie(request,response);
+                Cookie userName = new Cookie("username", 
+                    username);
+                Cookie passWord = new Cookie("password", 
+                    password);
+                userName.setMaxAge(60 * 60 * 24);
+                passWord.setMaxAge(60 * 60 * 24);
+                response.addCookie(userName);
+                response.addCookie(passWord);
                 UserInfoModel tmp = newuserInfoService.findUserInfoById(userModel.getUserid());
                 HttpSession session = request.getSession();
                 session.setAttribute("username",tmp.getLastname());
-                
+
                 Cookie lastName = new Cookie("lastname",tmp.getLastname());
                 lastName.setMaxAge(60 * 60 * 24);
                 response.addCookie(lastName);
-                
-                RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
-                dispatch.forward(request,response);
+                if(CheckRole.getInstance().byUserNameAndPassword(username, password)){
+                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/admin");
+                    dispatch.forward(request,response);
+                }
+                else{        
+                    RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/home");
+                    dispatch.forward(request,response);
+                }
             }
             else{
                 out.println("<script type=\"text/javascript\">");
@@ -92,7 +98,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -106,7 +116,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

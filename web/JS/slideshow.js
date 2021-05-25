@@ -10,8 +10,6 @@ window.addEventListener('resize',()=>{
     innerWidth = document.querySelector('.inner').offsetWidth;
 });
 
-console.log(playbutton);
-
 let index = 0;
 next.addEventListener("click",function(){
     index++;

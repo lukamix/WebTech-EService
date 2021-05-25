@@ -17,7 +17,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
     public Connection getConnection() throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/webstreamingmusic";
+            String url = "jdbc:mysql://localhost:3306/webstreamingmusic?useUnicode=true&characterEncoding=utf-8";
             String user = "root";
             String password = "";
             return DriverManager.getConnection(url, user, password);
@@ -69,6 +69,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     statement.setLong(index, (Long) parameter);
                 } else if (parameter instanceof String) {
                     statement.setString(index, (String) parameter);
+                    System.out.println(parameter);
                 } else if (parameter instanceof Integer) {
                     statement.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Timestamp) {
@@ -191,5 +192,38 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             }
         }
     }  
+
+    @Override
+    public void delete(String sql, Object... parameters) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql);
+            setParameter(statement, parameters);
+            statement.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
 
 }

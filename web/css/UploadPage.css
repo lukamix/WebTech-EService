@@ -1,0 +1,61 @@
+.uploadPage{
+    margin-left:10%;
+    margin-top:15vh;
+    margin-bottom:3vh;
+    min-height:68vh;
+    width:80vw;
+    color: pink;
+}
+.uploadPage .heading{
+    font-size: 30px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: bold;
+    color:pink;
+}
+.uploadPage img{
+    margin-top:10px;
+    width:30vw;
+    height:30vw;
+    border-radius:10%;
+    box-shadow: 5px 4px 3px rgba(0,0,0,0.3);
+}
+.uploadPage .content{
+    display:flex;
+    align-items: center;
+}
+.uploadPage .content form{
+    width:40vw;
+    margin-left:5vw;
+    display:flex;
+    flex-direction: column;
+}
+select{
+    cursor:pointer;
+    width:100%;
+    min-width:30px;
+    height: 30px;
+    padding: 5px;
+    color: pink;
+}
+.sub-option{
+    margin-top:10px;
+}
+input{
+    width:100%;
+    min-width:30px;
+    height:30px;
+}
+select option {
+    color: pink; 
+}
+.uploadPage .content form button{
+    color:white;
+    margin-top: 10px;
+    width:80px;
+    height:30px;
+    background: pink;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    outline:none;
+}
